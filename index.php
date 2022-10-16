@@ -15,7 +15,7 @@
         <h2>IES</h2>
         <h3>Turno Diurno</h3>
         <p>Pincha aquí si perteneces al turno diurno</p>
-        <a href="views/login_view.php">Tengo una cuenta</a>
+        <a href="controllers/login_controller.php">Tengo una cuenta</a>
       </div> 
     </div> 
     </div>
@@ -25,7 +25,7 @@
         <h2>Leonardo</h2>
         <h3>Turno Vespertino</h3>
         <p>Pincha aquí si perteneces al turno vespertino</p>
-        <a href="views/login_view.php">Tengo una cuenta</a>
+        <a href="controllers/login_controller.php">Tengo una cuenta</a>
       </div> 
     </div> 
     </div>

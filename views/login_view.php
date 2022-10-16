@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sala gaming | Login</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/login_style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login_style.css">
 </head>
       
 <body class="body-login d-flex align-items-center">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-footer mb-3">
                     <div class="d-flex justify-content-center links">
-                        <a class="login_txt" href="./controllers/register_controller.php">¿No tienes una Cuenta?</a>
+                        <a class="login_txt" href="../controllers/register_controller.php">¿No tienes una Cuenta?</a>
                     </div>
 			    </div>
             </div>

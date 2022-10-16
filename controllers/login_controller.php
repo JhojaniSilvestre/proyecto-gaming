@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $clave = $_POST['clave'];
     //Si se han rellenado los campos del login
     if($email != '' && $clave != ''){
-        header("location: controllers/welcome_controller.php");  
+        header("location: ./welcome_controller.php");  
     }
 	else{ //sino guardo los errores en variables para imprimir
         if($email == ''){
@@ -20,5 +20,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 //Llamada a la vista login para recoger datos del formulario
-require_once("views/login_view.php");
+require_once("../views/login_view.php");
 ?>
