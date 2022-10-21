@@ -1,11 +1,10 @@
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `admin` tinyint(1) DEFAULT NULL,
-  `turn` varchar(100) NOT NULL,
   `shift` enum('m','t') NOT NULL,
+  `active` BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -32,9 +31,9 @@ COLLATE=utf8mb4_general_ci;
 CREATE TABLE booking (
 	id_booking INT auto_increment NOT NULL,
 	`date` DATETIME NOT NULL,
-	id_companion INT NULL,
 	id_seat INT NOT NULL,
 	id_user INT NOT NULL,
+	id_companion INT NULL,
 	CONSTRAINT booking_pk PRIMARY KEY (id_booking),
 	CONSTRAINT booking_FK FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT booking_FK_1 FOREIGN KEY (id_seat) REFERENCES seats(id_seat) ON DELETE CASCADE ON UPDATE CASCADE
@@ -59,9 +58,7 @@ CREATE TABLE tournaments (
 	name varchar(100) NOT NULL,
 	`date` DATETIME NOT NULL,
 	id_game INT NOT NULL,
-	id_admin INT NOT NULL,
 	CONSTRAINT tournaments_pk PRIMARY KEY (id_tournament),
-	CONSTRAINT tournaments_FK FOREIGN KEY (id_admin) REFERENCES admins(id_admin) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT tournaments_FK_1 FOREIGN KEY (id_game) REFERENCES games(id_game) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=InnoDB
@@ -87,10 +84,8 @@ COLLATE=utf8mb4_general_ci;
 CREATE TABLE wins (
 	id_win INT auto_increment NOT NULL,
 	`number` INT NULL,
-	id_admin INT NOT NULL,
 	id_participant INT NOT NULL,
 	CONSTRAINT wins_pk PRIMARY KEY (id_win),
-	CONSTRAINT wins_FK FOREIGN KEY (id_admin) REFERENCES admins(id_admin) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT wins_FK_1 FOREIGN KEY (id_participant) REFERENCES participants(id_participant) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=InnoDB
