@@ -4,9 +4,9 @@
 //Parámetros salida: devuelve el identificador de la conexión
 	function generarConexion(){
 	  $servername = "localhost";
-	  $username = "id19730296_root";
-	  $password = "JvXBBihA*R0u0gkB";
-	  $dbname = "id19730296_proyectogaming";
+	  $username = "root";
+	  $password = "rootroot";
+	  $dbname = "proyectogaming";
 
 	  try {
 		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -20,5 +20,16 @@
 	  }
 
 	  return $conn;
+	}
+
+	function cerrarConexion($conn){
+		$conn = null;
+	}
+
+	function limpiar($dato){
+		$dato = trim($dato);
+		$dato = stripslashes($dato);
+		$dato = htmlspecialchars($dato);
+		return $dato;
 	}
 ?>
