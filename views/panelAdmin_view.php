@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Panel admin</h1>
+    <a href="../index.php">Cerrar Sesión</a>
 </body>
 </html>
