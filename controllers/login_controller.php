@@ -7,16 +7,14 @@ if(isset($_SESSION['id_user'])){
     session_destroy();
 }
 //echo var_dump($_POST);
-//si el formulario se ha enviado
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //abro conexion, viene de index
     $conn = generarConexion();
 
-    //Llamada al modelo para hacer la select que comprueba el login-- Intermediario entre vista y modelo !!!
     require_once("models/login_model.php");
 
     if(isset($_POST['submit'])){
-        //Si se han rellenado los campos del login
         if(isset($_POST['email']) && isset($_POST['clave'])){ 
             $respuesta = getUserId($conn,$_POST['email'], $_POST['clave']);
             if($respuesta->rowCount() > 0){   
@@ -43,10 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
         else{ //sino guardo los errores en variables para imprimir
-            if($_POST['email'] == ''){
+            if(!isset($_POST['email']))
+            {
                 $email_err = "No se ha proporcionado un correo!";
             }
-            if($_POST['clave'] == ''){
+            if(!isset($_POST['clave']))
+            {
                 $clave_err = "No se ha proporcionado una contrase&ntilde;a!";
             }
         }
