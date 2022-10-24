@@ -8,11 +8,11 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE proyectoGaming.admins (
+CREATE TABLE admins (
 	id_admin INT auto_increment NOT NULL,
 	id_user INT NOT NULL,
 	CONSTRAINT admins_pk PRIMARY KEY (id_admin),
-	CONSTRAINT admins_FK FOREIGN KEY (id_user) REFERENCES proyectoGaming.users(id_user) ON DELETE CASCADE ON UPDATE CASCADE
+	CONSTRAINT admins_FK FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
