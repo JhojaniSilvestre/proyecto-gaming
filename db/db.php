@@ -4,9 +4,10 @@
 //Parámetros salida: devuelve el identificador de la conexión
 	function generarConexion(){
 	  $servername = "localhost";
-	  $username = "root";
-	  $password = "rootroot";
-	  $dbname = "proyectogaming";
+	  $username = "id19730296_root";
+	  $password = "JvXBBihA*R0u0gkB";
+	  $dbname = "id19730296_proyectogaming";
+// contraseña generada: 90#/e=8+=2W(4OuJ
 
 	  try {
 		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
