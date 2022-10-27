@@ -2,12 +2,12 @@
 
 require_once("../db/db.php");
 
-    function validateUser($idUser,$name,$email,$password) {
-        global $conexion;
+    function registerUser($email,$password,$shift,$name) {
+        global $conn;
 
         try {
-            $obtenerID = $conexion->prepare("INSERT into user (idUser,name,email,password)
-                                             values ('$idUser','$name','$email','$password')");
+            $obtenerID = $conn->prepare("INSERT into users (active,email,password,shift,username)
+                                             values (1,'$email','$password','$shift','$name')");
             $obtenerID->execute();
             
         //return $obtenerID->fetchAll(PDO::FETCH_ASSOC);
@@ -15,21 +15,5 @@ require_once("../db/db.php");
             echo $ex->getMessage();
         }
     }
-
-
-    function emptyField($idUser,$name,$email,$password){
-
-        //Validamos si algún campo del registro está vacio
-        if(empty($idUser) || empty($name) ||empty($email)|| empty($password)) {
-            
-          echo "Hay campos vacios.";
-          return false;
-        }else{
-            return true;
-        }
-        
-    }
-
-    //FALTAN VALIDACIONES DE NOMBRE Y EMAIL
 
 ?>

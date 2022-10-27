@@ -5,11 +5,16 @@
   }
   
   body {
-    background-image: url('../img/fondo4.webp');
+    background-image: url('../img/fondo_registro.jpg');
     background-repeat: no-repeat;  
     background-size: cover;
 }
-  
+
+.error{
+  color: red;
+  font-size: medium;
+}
+
   .form-register {
     width: 400px;
     background: #24303c;
@@ -65,3 +70,8 @@
     margin: 16px 0;
     font-size: 16px;
   }
+  
+  
+  
+
+  

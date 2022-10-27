@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/register_style.css">
+  <script src="../js/registerOK.js" type="text/javascript"> </script>
   <title>Formulario Registro</title>
 </head>
+
 <body>
   <section class="form-register">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST"></form>
-        <h4>Formulario Registro</h4>
-        <input class="controls" type="text" name="name" id="name" placeholder="Ingrese su Nombre de Usuario">
-        <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo">
-        <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
-        <label><input type="checkbox" id="morning_turn" value="morning"> Turno Mañana</label><br>
-        <input type="checkbox" id="evening-turn" value="evening"><label> Turno Tarde</label>
-        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-        <input class="botons" type="submit" value="Registrar">
-        <p><a href="../index.php">¿Ya tengo Cuenta?</a></p>
-    </form>   
+    <form action="../controllers/register_controller.php" method="POST">
+      <h4>Formulario Registro</h4>
+      <input class="controls" type="text" name="name" id="name" placeholder="Ingrese su Nombre de Usuario" required>
+      <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo" required>
+      <!--Imprime mensaje de error-->
+      <?php if (isset($email_err)) { ?>
+        <p class="error"><?php echo $email_err; ?></p>
+      <?php } ?>
+      <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña" required>
+      <select id="unittype" name="shift">
+        <option value="" selected> --Escoge su turno--</option>
+        <option value="m"> Mañana</option>
+        <option value="t"> Tarde </option>
+      </select>
+      <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+      <input class="botons" type="submit" value="Registrar" onclick="return registerOK()">
+      <p><a href="../index.php">¿Ya tengo Cuenta?</a></p>
+    </form>
   </section>
 
 </body>
+
 </html>
