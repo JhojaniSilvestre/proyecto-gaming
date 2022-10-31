@@ -5,7 +5,7 @@
   }
   
   body {
-    background-image: url('../img/fondo_registro.jpg');
+    background-image: url('../img/bckrgtr.jpg');
     background-repeat: no-repeat;  
     background-size: cover;
 }
@@ -14,6 +14,7 @@
   color: red;
   font-size: medium;
 }
+
 
   .form-register {
     width: 400px;
@@ -71,6 +72,15 @@
     font-size: 16px;
   }
   
+  .error{
+    display:none;
+    color:black;
+    background-color:#ff0;
+    font-size:1px;
+    width:400px;
+    border:1px solid #00f;
+    padding:5px;
+  }
   
   
 

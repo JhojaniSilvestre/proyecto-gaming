@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION['email'] = $resultado["email"];
                 $_SESSION['username'] = $resultado["username"];
                 $_SESSION['shift'] = $resultado["shift"];
+                $_SESSION['clave'] = $resultado["password"];
+                
 
                 //obtener id admin
                 $respuesta = getAdminId($conn,$resultado["id_user"]);

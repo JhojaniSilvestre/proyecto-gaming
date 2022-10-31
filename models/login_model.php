@@ -4,7 +4,7 @@
 //Parámetros salida: devuelve el identificador de la conexión
 function getUserId($conexion,$email, $clave){
         try{
-            $sql = $conexion->prepare("SELECT id_user, email, username, shift FROM users
+            $sql = $conexion->prepare("SELECT id_user, email, username, shift, password FROM users
                                         WHERE email = '$email' AND 
                                         users.password = '$clave' AND active = 1");
             $sql->execute();
