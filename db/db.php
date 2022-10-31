@@ -3,15 +3,10 @@
 //Parámetros entrada: --
 //Parámetros salida: devuelve el identificador de la conexión
 	function generarConexion(){
-	  /*$servername = "localhost";
-	  $username = "id19730296_root";
-	  $password = "JvXBBihA*R0u0gkB";
-	  $dbname = "id19730296_proyectogaming";*/
-
-	  $servername = "localhost";
-	  $username = "root";
-	  $password = "";
-	  $dbname = "proyectogaming";
+		$servername = "localhost";
+		$username = "root";
+		$password = "rootroot";
+		$dbname = "proyectogaming";
 // contraseña generada: 90#/e=8+=2W(4OuJ
 
 	  try {
