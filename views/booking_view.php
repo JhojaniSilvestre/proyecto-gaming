@@ -81,7 +81,11 @@
 
                                                 <div class="col-md-12">
                                                     <select class=" mt-3" required>
-                                                        <option selected disabled value="">Puesto</option>
+                                                            <option selected disabled value="">Puesto</option>
+                                                            <!--recorro el array  -->
+                                                            <?php foreach($seats as $seat_id) : ?>
+                                                                    <?php echo "<option>".$seat_id."</option>"; ?>
+                                                            <?php endforeach; ?>
                                                     </select>
                                                 </div>
 
