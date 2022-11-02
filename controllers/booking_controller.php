@@ -6,5 +6,15 @@
 		session_destroy();
 		header("location: ../index.php");
 	}
-    require_once("../views/booking_view.php");
+
+	require_once '../db/db.php';
+	$conn = generarConexion();
+
+	require_once '../models/booking_model.php';
+	//array que contiene las pelis disponibles
+	$seats = obtenerPuestos($conn);
+
+	cerrarConexion($conn);
+
+	require_once("../views/booking_view.php");
 ?>
