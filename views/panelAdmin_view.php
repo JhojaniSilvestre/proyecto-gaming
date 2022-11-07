@@ -1,182 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Panel Admin</title>
 
-    <title>Admin | Dashboard</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
-    <!-- Custom fonts for this template-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body id="page-top">
+<body>
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Panel Admin</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-            
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+            <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="w-100"></div>
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="#">
+                    <span class="fa-1x me-1">
+                        <i class="fa-solid fa-house-chimney-user"></i>
+                    </span>
+                    Bienvenido/a Admin <span class="text-info">Usuario</span>
+                </a>
             </div>
+        </div>
+    </header>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="btn btn-primary" href="../index.php">Logout</a></li>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-5">
+                    <ul class="nav flex-column">
+                        <li class="nav-item  menu-items active">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-gauge-simple-high fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Torneos
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-gamepad fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Juegos
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Victorias
+                            </a>
+                        </li>
+                        <hr class="bg-danger border-2 border-top mx-2">
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="../index.php">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-right-from-bracket fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Cerrar Sesión
+                            </a>
+                        </li>
                     </ul>
-                </nav>
-                <!-- End of Topbar -->
+                </div>
+            </nav>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            </div>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <h1 class="text-white fw-bold h3">Dashboard</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 order-sm-2 order-md-1">
+                        <div class="card">
+                            <img src="../img/popular-07.jpg" class="card-img-top rounded p-4" alt="...">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-lg-12 mb-4">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-                            <!-- Illustrations -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
-                                </div>
                             </div>
-
                         </div>
                     </div>
-
+                    <div class="col-md-8 order-sm-1 order-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-row justify-content-between m-3">
+                                    <h4 class="card-title mb-1">Administrar</h4>
+                                    <p class="text-muted mb-1">Acciones</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="preview-list">
+                                            <div class="preview-item border-bottom d-flex justify-content-between m-3">
+                                                <div class="preview-thumbnail pb-2">
+                                                    <span class="fa-stack fa-2x">
+                                                        <i class="fa-solid fa-square fa-stack-2x"></i>
+                                                        <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                    Victorias
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <button type="button" class="btn btn-outline-primary">
+                                                        <a src="#">Crear</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="preview-item border-bottom d-flex justify-content-between m-3">
+                                                <div class="preview-thumbnail pb-2">
+                                                    <span class="fa-stack fa-2x">
+                                                        <i class="fa-solid fa-square fa-stack-2x"></i>
+                                                        <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                    Victorias
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <button type="button" class="btn btn-outline-primary">
+                                                        <a src="#">Crear</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="preview-item border-bottom d-flex justify-content-between m-3">
+                                                <div class="preview-thumbnail pb-2">
+                                                    <span class="fa-stack fa-2x">
+                                                        <i class="fa-solid fa-square fa-stack-2x"></i>
+                                                        <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                    Victorias
+                                                </div>
+                                                <div class="preview-item-content">
+                                                    <button type="button" class="btn btn-outline-primary">
+                                                        <a src="#">Crear</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Striped Table</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
+    <script src="../css/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
 </body>
 
 </html>
