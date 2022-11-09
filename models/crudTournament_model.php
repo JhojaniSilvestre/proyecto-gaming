@@ -10,7 +10,7 @@ function obtenerTorneos($conn){
         if($stmt->rowCount() > 0){
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             foreach($stmt->fetchAll() as $row) {
-                $tournaments[] =array($row["id_tournament"],$row["nametourn"],$row["date"],$row["nomgame"]); 
+                $tournaments[] =array($row["id_tournament"],$row["nametourn"],$row["nomgame"],$row["date"]); 
             }
         }
         return $tournaments;
