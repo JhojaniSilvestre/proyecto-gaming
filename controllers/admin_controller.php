@@ -6,5 +6,5 @@
 		session_destroy();
 		header("location: ../index.php");
 	}
-    require_once("../views/panelAdmin_view.php");
+    require_once("../views/admin_view.php");
 ?>

@@ -1,0 +1,173 @@
+body {
+  font-size: 0.95rem;
+}
+
+/*--------------------- Navbar ---------------------------*/
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar-nav .nav-item a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*--------------------- Sidebar ---------------------------*/
+
+.sidebar {
+  background: #191c24;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #6c7293;
+}
+
+.sidebar .nav .nav-item:hover > .nav-link, .sidebar .nav .nav-item.active > .nav-link {
+  background: #0f1015;
+  position: relative;
+}
+
+.sidebar .nav .nav-item.active > .nav-link:before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background: #0090e7;
+  position: absolute;
+  left: 0;
+}
+
+.sidebar .nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.8rem 10px 0.8rem 1.188rem;
+  height: 46px;
+  border-radius: 0px 100px 100px 0px;
+}
+
+/*--------------------- Main content ---------------------------*/
+main{
+  min-height: 100vh;
+  background: #000000;
+  padding: 1.875rem 1.75rem;
+}
+
+.preview-thumbnail .preview-text, .card-text{
+  color: #6c7293;
+}
+
+.preview-item{
+  border-bottom: 1px solid #2c2e33;
+}
+
+.preview-item-content .btn{
+  width: 95px;
+  text-align: center;
+  padding: 8px;
+}
+
+/*--------------------- Main card ---------------------------*/
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #191c24;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-title{
+  color: #ffffff;
+  margin-bottom: 1.125rem;
+  text-transform: capitalize;
+}
+
+.card-description {
+  color: #bfbfbf;
+  font-weight: 300;
+}
+
+/*--------------------- Img logo ---------------------------*/
+
+.img-logo-admin{
+  margin-left: 4%;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/*--------------------- Sidebar icons ---------------------------*/
+
+.fa-stack{
+  margin-right: 0.5rem;
+}
+
+.fa-stack .fa-circle{
+  color: #6c729333;
+}
+
+.sidebar .nav .menu-items:nth-child(5n+1) .nav-link .fa-stack i:nth-child(2) {
+  color: #8f5fe8;
+}
+
+.sidebar .nav .menu-items:nth-child(5n+2) .nav-link .fa-stack i:nth-child(2) {
+  color: #fc424a;
+}
+
+.sidebar .nav .menu-items:nth-child(5n+3) .nav-link .fa-stack i:nth-child(2) {
+  color: #0090e7;
+}
+
+.sidebar .nav .menu-items:nth-child(5n+4) .nav-link .fa-stack i:nth-child(2) {
+  color: #00d25b;
+}
+
+.sidebar .nav .menu-items:nth-child(5n+5) .nav-link .fa-stack i:nth-child(2) {
+  color: #ffab00;
+}
+
+/*--------------------- Table ---------------------------*/
+
+.table{
+  margin-bottom: 0;
+  color: #6c7293;
+  border-color: #2c2e33;
+}
+
+
+

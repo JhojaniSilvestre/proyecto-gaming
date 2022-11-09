@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION['id_admin'] = $resultado["id_admin"];
 
                     //redireccionar a panel admin
-                    header("location: controllers/panelAdmin_controller.php");
+                    header("location: controllers/admin_controller.php");
                 }
                 else{//redireccionar a inicio
                     header("location: controllers/welcome_controller.php");
