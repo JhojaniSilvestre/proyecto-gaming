@@ -161,5 +161,13 @@ main{
   color: #ffab00;
 }
 
+/*--------------------- Table ---------------------------*/
+
+.table{
+  margin-bottom: 0;
+  color: #6c7293;
+  border-color: #2c2e33;
+}
+
 
 
