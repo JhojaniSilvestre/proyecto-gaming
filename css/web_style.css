@@ -120,12 +120,12 @@ p {
 }
 
 ::selection {
-  background: #e75e8d;
+  background: #7a51f4;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #e75e8d;
+  background: #7a51f4;
   color: #fff;
 }
 
@@ -137,7 +137,7 @@ p {
 .main-button a {
   font-size: 14px;
   color: #fff;
-  background-color: #e75e8d;
+  background-color: #7a51f4;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -151,14 +151,14 @@ p {
 
 .main-button a:hover {
   background-color: #fff;
-  color: #e75e8d;
+  color: #7a51f4;
 }
 
 .main-border-button a {
   font-size: 14px;
-  color: #ec6090;
+  color: #7a51f4;
   background-color: transparent;
-  border: 1px solid #ec6090;
+  border: 1px solid #7a51f4;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -173,7 +173,7 @@ p {
 .main-border-button a:hover {
   border-color: #fff;
   background-color: #fff;
-  color: #e75e8d;
+  color: #7a51f4;
 }
 
 .online a{
@@ -194,7 +194,7 @@ section {
 }
 
 .heading-section h4 {
-  color: #ec6090;
+  color: #7a51f4;
   font-size: 34px;
   text-decoration: none;
   margin-bottom: 30px;
@@ -333,13 +333,13 @@ Header Style
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #e75e8d !important;
+  color: #7a51f4 !important;
 }
 
 .header-area .main-nav .nav li:last-child:hover a,
 .header-area .main-nav .nav li:last-child a.active {
   color: #fff !important;
-  background-color: #e75e8d !important;
+  background-color: #7a51f4 !important;
 }
 
 .background-header .main-nav .nav li:hover a,
@@ -377,7 +377,7 @@ Header Style
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #e75e8d;
+  background-color: #7a51f4;
   display: block;
   position: absolute;
   width: 30px;
@@ -388,7 +388,7 @@ Header Style
 .background-header .main-nav .menu-trigger span,
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -397,7 +397,7 @@ Header Style
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #e75e8d;
+  background-color: #7a51f4;
   display: block;
   position: absolute;
   width: 30px;
@@ -408,7 +408,7 @@ Header Style
 
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -449,11 +449,11 @@ Header Style
   -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
   -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
   transform: translateY(6px) translateX(1px) rotate(45deg);
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .background-header .main-nav .menu-trigger.active span:before {
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .header-area .main-nav .menu-trigger.active span:after {
@@ -461,11 +461,11 @@ Header Style
   -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .background-header .main-nav .menu-trigger.active span:after {
-  background-color: #e75e8d;
+  background-color: #7a51f4;
 }
 
 .header-area.header-sticky {
@@ -516,7 +516,7 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #e75e8d!important;
+    color: #7a51f4!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -578,13 +578,13 @@ Header Style
   }
   .header-area .main-nav .nav li a:hover {
     background: #fff !important;
-    color: #e75e8d!important;
+    color: #7a51f4!important;
   }
   .header-area .main-nav .nav li:last-child a img {
     display: none;
   }
   .header-area .main-nav .nav li:last-child a:hover {
-    color: #ec6090 !important;
+    color: #7a51f4 !important;
     background-color: transparent !important;
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
@@ -650,7 +650,7 @@ Banner Style
 
 .main-banner h4 em {
   font-style: normal;
-  color: #ec6090;
+  color: #7a51f4;
 }
 
 /* 
@@ -746,7 +746,7 @@ footer p a {
 }
 
 footer p a:hover {
-  color: #ec6090;
+  color: #7a51f4;
 }
 
 
@@ -802,7 +802,7 @@ Profile Style
 .main-profile ul li span {
   float: right;
   font-weight: 500;
-  color: #ec6090;
+  color: #7a51f4;
 }
 
 .main-profile ul li:last-child {
@@ -844,7 +844,7 @@ Profile Style
     display: inline-block;
     text-align: center;
     line-height: 46px;
-    color: #ec6090;
+    color: #7a51f4;
 }
 
 .clips .item h4 {
@@ -853,7 +853,7 @@ Profile Style
 }
 
 .clips .item span i {
-  color: #ec6090;
+  color: #7a51f4;
 }
 
 .clips .item span {
