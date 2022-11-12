@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST['password'];
     $shift = $_POST['shift'];
 
-    
+    if (isset($_POST['submit'])) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             if (passwordValidate($password, $error_clave)) {
                 registerUser($conexion, $email, $password, $shift, $name);
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email_err = "Email incorrecto";
         }
     }
-
+}
 
 
 //Llamada a la vista register para recoger datos del formulario
