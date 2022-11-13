@@ -16,5 +16,5 @@
 
 	cerrarConexion($conn);
 
-	require_once("../views/tournament_view.php");
+	require_once("../views/adminTournament_view.php");
 ?>
