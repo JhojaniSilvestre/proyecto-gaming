@@ -1,8 +1,13 @@
 <?php
-// Llamada al fichero que inicia la conexión a la Base de Datos
-require_once("db/db.php");
+    session_start(); //se inicia la sesión
 
-// Llamada al controlador
-require_once("controllers/login_controller.php");
+    //cerrar sesión si actualmente hay una activa
+    if(isset($_SESSION['id_user'])){
+        session_unset();
+        session_destroy();
+    }
+
+    //Llamada a la vista login para recoger datos del formulario
+    require_once("views/index_view.php");
 
 ?>
