@@ -30,44 +30,33 @@
         }
     }
     else{  
-    //envio del formulario para la actualización
-	if ($_SERVER["REQUEST_METHOD"] === "POST") { 
-		if (isset($_POST['edit'])) {
-            $errors = array();
-            $correct = true;
+        //envio del formulario para la actualización
+        if ($_SERVER["REQUEST_METHOD"] === "POST") { 
+            if (isset($_POST['edit'])) {
+                $errors = array();
+                $correct = true;
 
-            if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "") {
-                array_push($errors,"No puede dejar campos en blanco o sin seleccionar.");
-				$correct = false;
-            }
-            else{
-                $id = limpiar($_POST["id"]);
-                $name = limpiar($_POST["nombre"]);
-                $date = limpiar($_POST["fecha"]);
-                $idgame = limpiar($_POST["juego"]);
-                $shift = limpiar($_POST["turno"]);
-
-                //fecha formato datetime según la hora elegida
-                if ($shift == "m")
-                    $datetime = $date." 11:15:00";
-                else
-                    $datetime = $date." 17:45:00";
-
-                /* funcion para obtener la fecha actual */
-                date_default_timezone_set('Europe/Madrid');
-                $dateNow = date("Y-m-d");
-
-                //validaciones
-                /*                 
-                if ($_SESSION['shift'] != $shift) {
-                    array_push($errors,"No puede crear torneos que no correspondan a su turno");
+                if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "") {
+                    array_push($errors,"No puede dejar campos en blanco o sin seleccionar.");
                     $correct = false;
-                } */
-                //
-                if ($date < $dateNow) {
-                    array_push($errors,"Introduzca una fecha correcta");
-                    $correct = false;
-                }else{
+                }
+                else{
+                    $id = limpiar($_POST["id"]);
+                    $name = limpiar($_POST["nombre"]);
+                    $date = limpiar($_POST["fecha"]);
+                    $idgame = limpiar($_POST["juego"]);
+                    $shift = limpiar($_POST["turno"]);
+
+                    //fecha formato datetime según la hora elegida
+                    if ($shift == "m")
+                        $datetime = $date." 11:15:00";
+                    else
+                        $datetime = $date." 17:45:00";
+
+                    /* funcion para obtener la fecha actual */
+                    date_default_timezone_set('Europe/Madrid');
+                    $dateNow = date("Y-m-d");
+                    /* comprobar que la fecha este disponible */
                     $dateFree = fechaDisponibleEdit($conn,$id,$datetime);
                     if ($dateFree === false) {
                         array_push($errors,"La fecha seleccionada no está disponible");
@@ -75,18 +64,17 @@
                     }
                 }
 
-            }
-
-            if($correct){
-				updateTorneo($conn,$id,$name,$datetime,$idgame);
-                header("location: ../adminTournament_controller.php");
-			}
-		}
-	}
-    else{
-        header("location: ../adminTournament_controller.php");
+                if($correct){
+                    updateTorneo($conn,$id,$name,$datetime,$idgame);
+                    header("location: ../adminTournament_controller.php");
+                }
+            } //fin if isset
+        } //fin if request post
+        else{
+            header("location: ../adminTournament_controller.php");
+        }
     }
-}
+
 	cerrarConexion($conn);
 	require_once("../../views/crud_tournament/edit_view.php");
 ?>
