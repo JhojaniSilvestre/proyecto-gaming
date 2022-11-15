@@ -6,7 +6,7 @@
 	//array que contiene los juegos
 	$games = obtenerJuegos($conn);
 
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && $_GET['id'] != "") {
 
         //obtener datos del torneo seleccionado
         $id = $_GET['id']; //obtengo el id pasado por la url del enlace
@@ -29,9 +29,7 @@
                 $shift = "t";
         }
     }
-/*     else{
-        header("location: ../adminTournament_controller.php");
-    } */
+    else{  
     //envio del formulario para la actualización
 	if ($_SERVER["REQUEST_METHOD"] === "POST") { 
 		if (isset($_POST['edit'])) {
@@ -85,6 +83,10 @@
 			}
 		}
 	}
+    else{
+        header("location: ../adminTournament_controller.php");
+    }
+}
 	cerrarConexion($conn);
 	require_once("../../views/crud_tournament/edit_view.php");
 ?>
