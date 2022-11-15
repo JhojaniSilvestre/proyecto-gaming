@@ -20,6 +20,18 @@ function obtenerTorneos($conn){
     }
 }
 
+function obtenerTorneoEspecifico($conn, $id){
+    try {
+        $stmt = $conn->prepare("SELECT id_tournament,tournaments.name AS nametourn,date, games.id_game AS idgame FROM tournaments, games
+            WHERE tournaments.id_game = games.id_game AND id_tournament = $id");
+        $stmt->execute();
+        return $stmt;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
 function obtenerJuegos($conn){
     try {
         $stmt = $conn->prepare("SELECT id_game, name FROM games");
@@ -91,6 +103,43 @@ function crearTorneo($conn,$idTournmt,$name,$datetime,$idgame){
 	}catch(PDOException $e){
 		 echo "Error: ", $e-> getMessage();
 	}
+}
+
+/*----------------- Update functions ---------------------------*/
+
+function fechaDisponibleEdit($conn,$id,$datetime){
+    try {
+        $dateFree = true;
+        //Compruebo que no haya un torneo con la misma fecha
+        $stmt = $conn->prepare("SELECT date FROM tournaments WHERE date = '$datetime' AND id_tournament != $id");
+        $stmt->execute();
+        //compruebo si la select tiene resultados
+        if ($stmt->rowCount() > 0) {
+            $dateFree = false;
+        }
+        //Compruebo que no haya una reserva de sitio esa fecha
+        $stmt = $conn->prepare("SELECT date FROM booking WHERE date = '$datetime'");
+        $stmt->execute();
+        //compruebo si la select tiene resultados
+        if ($stmt->rowCount() > 0) {
+            $dateFree = false;
+        }
+        return $dateFree;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function updateTorneo($conn,$id,$name,$datetime,$idgame){
+    try {
+        $update = "UPDATE tournaments SET name = '$name', date = '$datetime', id_game = $idgame 
+        WHERE id_tournament = $id";
+        $conn->exec($update);
+
+    }catch(PDOException $e){
+        echo "No se ha podido actualizar el registro", $e-> getMessage();
+    }
 }
 
 ?>

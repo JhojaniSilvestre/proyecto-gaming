@@ -120,7 +120,7 @@
                                     <input type="date" name="fecha" id="fecha" placeholder="Fecha del torneo">
                                 </div>
                                 <div>
-                                    <select name="juego" required>
+                                    <select name="juego">
                                         <!--recorro el array  -->
                                         <?php foreach($games as $id_game => $game) : ?>
                                             <?php echo "<option value='".$id_game."'>".$game."</option>"; ?>
@@ -130,14 +130,15 @@
                                 <div class="mt-3 mb-4">
                                     <label class="mb-3 me-2" for="shift">Hora:</label>
 
-                                    <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off" required>
+                                    <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off">
                                     <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
 
-                                    <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off" required>
+                                    <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                 </div>
                                 <div class="text-center mb-2">
-                                    <button type="submit" name="crear" class="btn-form">Crear</button>
+                                    <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                    <button type="submit" name="crear" class="ms-2 btn btn-primary">Crear</button>
                                 </div>
                                 <!-- Imprimo msj error-->
                                 <?php if(empty($errors) === false){ ?>

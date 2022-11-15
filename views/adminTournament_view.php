@@ -127,16 +127,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Imprimo datos tabla-->
+                                            <!-- Compruebo que existen torneos-->
                                             <?php if(empty($tournaments) === false){ ?>
+                                                <!-- recorro las filas del array-->
                                                 <?php foreach($tournaments as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
+                                                        <!-- recorro los datos de cada fila-->
                                                         <?php foreach($fila as $celda) : ?>
-                                                            <!--imprimo los datos columna de la fila en la celda"-->
+                                                            <!--imprimo cada dato-->
                                                             <?php echo "<td>".$celda."</td>"; ?>
                                                         <?php endforeach;?>
-                                                        <?php echo "<td><button class='btn btn-success'>
-                                                        <a class='text-decoration-none text-white' href='../views/crud_tournament/edit_view.php'>Editar</a></button></td>"; ?>
+                                                        <!--paso id del torneo en el enlace-->
+                                                        <td>
+                                                            <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" 
+                                                            class="btn btn-outline-success me-3">Editar</a>
+                                                            <a href="#" 
+                                                            class="btn btn-outline-danger">Eliminar</a>
+                                                        </td>
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>
