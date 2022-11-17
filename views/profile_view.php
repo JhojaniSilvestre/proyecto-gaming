@@ -36,11 +36,11 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="welcome_controller.php" class="active">Home</a></li>
+                        <li><a href="welcome_controller.php">Home</a></li>
                         <li><a href="../controllers/booking_controller.php">Reservas</a></li>
                         <li><a href="tournament_view.php">Torneos</a></li>
-                        <li><a href="profile_controller.php">Mi cuenta</a></li>
-                        <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
+                        <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
+                        <li><a href="../index.php">Cerrar sesión <img src="../img/apagado.png" alt="cerrar sesión"></a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -107,6 +107,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
+
+  <script src="../js/isotope.min.js"></script>
+  <script src="../js/owl-carousel.js"></script>
   <script src="../js/custom.js"></script>
 
 
