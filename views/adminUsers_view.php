@@ -52,8 +52,8 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
+                        <li class="nav-item menu-items active">
+                            <a class="nav-link" aria-current="page" href="#">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -61,7 +61,7 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -104,33 +104,33 @@
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3 me-4">Torneos</h1>
-                    <input type="button" value="Crear Torneo" onclick="window.location.href='../controllers/crud_tournament/create_controller.php'" 
-                    class="btn btn-outline-primary">
+                    <h1 class="text-white fw-bold h3 me-4">Usuarios</h1>
                 </div>
 
                 <div class="row">
                     <div class="col-10 mx-auto">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Historial</h4>
+                                <h4 class="card-title">Historial usuarios</h4>
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID Torneo</th>
-                                                <th>Nombre</th>
-                                                <th>Juego</th>
-                                                <th>Fecha</th>
+                                                <th>ID</th>
+                                                <th>Usuario</th>
+                                                <th>Email</th>
+                                                <th>Contraseña</th>
+                                                <th>Turno</th>
+                                                <th>Activo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Compruebo que existen torneos-->
-                                            <?php if(empty($tournaments) === false){ ?>
+                                            <?php if(empty($users) === false){ ?>
                                                 <!-- recorro las filas del array-->
-                                                <?php foreach($tournaments as $fila) : ?>
+                                                <?php foreach($users as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                         <!-- recorro los datos de cada fila-->
                                                         <?php foreach($fila as $celda) : ?>
@@ -139,10 +139,10 @@
                                                         <?php endforeach;?>
                                                         <!--paso id del torneo en el enlace-->
                                                         <td>
-                                                            <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" 
-                                                            class="btn btn-outline-success me-3">Editar</a>
                                                             <a href="#" 
-                                                            class="btn btn-outline-danger">Eliminar</a>
+                                                            class="btn btn-outline-success me-3">Activar</a>
+                                                            <a href="#" 
+                                                            class="btn btn-outline-danger">Desactivar</a>
                                                         </td>
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
