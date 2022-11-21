@@ -105,8 +105,8 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3 me-4">Torneos</h1>
-                    <input type="button" value="Crear Torneo" onclick="window.location.href='../controllers/crud_tournament/create_controller.php'" 
-                    class="btn btn-outline-primary">
+                    <a href="../controllers/crud_tournament/create_controller.php" 
+                    class="btn btn-outline-primary">Crear Torneo</a> 
                 </div>
 
                 <div class="row">

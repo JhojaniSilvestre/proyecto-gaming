@@ -8,11 +8,11 @@
     <title>Administrar Torneos</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilo customizado-->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
     <!--Trae el estilo del formulario-->
-    <link href="../css/booking_style.css" rel="stylesheet">
+    <link href="../../css/booking_style.css" rel="stylesheet">
 
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,7 +21,7 @@
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
-            <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
+            <img src="../../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                 <div class="position-sticky pt-5">
                     <ul class="nav flex-column">
                         <li class="nav-item  menu-items">
-                            <a class="nav-link" aria-current="page" href="./admin_controller.php">
+                            <a class="nav-link" aria-current="page" href="../admin_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gauge-simple-high fa-stack-1x fa-inverse"></i>
@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
+                            <a class="nav-link" aria-current="page" href="../adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
+                            <a class="nav-link" aria-current="page" href="../adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items active">
-                            <a class="nav-link" aria-current="page" href="./adminWins_controller.php">
+                            <a class="nav-link" aria-current="page" href="../adminWins_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
@@ -92,7 +92,7 @@
                         </li>
                         <hr class="bg-danger border-2 border-top mx-2">
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../index.php">
+                            <a class="nav-link" aria-current="page" href="../../index.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-right-from-bracket fa-stack-1x fa-inverse"></i>
@@ -107,81 +107,46 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3 me-4">Victorias</h1>
-                    <a href="./crud_wins/addWin_controller.php" class="btn btn-primary">Añadir Victoria</a>
                 </div>
                 <div class="row">
-                <div class="card col-10 mx-auto">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">Ranking Usuarios</h4>
-                            </p>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Usuario</th>
-                                            <th>Victorias Totales</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Compruebo que existen torneos-->
-                                        <?php if (empty($ranking) === false) { ?>
-                                            <!-- recorro las filas del array-->
-                                            <?php foreach ($ranking as $fila) : ?>
-                                                <?php echo "<tr>"; ?>
-                                                <!-- recorro los datos de cada fila-->
-                                                <?php foreach ($fila as $celda) : ?>
-                                                    <!--imprimo cada dato-->
-                                                    <?php echo "<td>" . $celda . "</td>"; ?>
-                                                <?php endforeach; ?>
-                                                <?php echo "</tr>"; ?>
-                                            <?php endforeach; ?>
-                                        <?php } ?>
-                                        <!-- fin datos -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col-10 mx-auto mt-5">
+                    <div class="col-10 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title text-left mb-3">Añadir participante Ganador</h3>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <div>
+                                        <input type="text" name="username" id="username" placeholder="Nombre de usuario">
+                                    </div>
+                                    <div>
+                                        <input type="text" name="nomTourn" id="nomTourn" placeholder="Nombre del torneo">
+                                    </div>
+                                    <div>
+                                        <input type="date" name="fecha" id="fecha" placeholder="Fecha del torneo">
+                                    </div>
+                                    <div class="mt-3 mb-4">
+                                        <label class="mb-3 me-2" for="shift">Hora:</label>
 
-                        <div class="card-body">
-                            <h4 class="card-title">Historial de Participantes ganadores en torneos</h4>
-                            </p>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Victoria</th>
-                                            <th>ID Participante</th>
-                                            <th>Nombre Usuario</th>
-                                            <th>Nombre Torneo</th>
-                                            <th>Nombre Juego</th>
-                                            <th>Fecha</th>
-                                            <th>Ganador</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Compruebo que existen torneos-->
-                                        <?php if (empty($wins) === false) { ?>
-                                            <!-- recorro las filas del array-->
-                                            <?php foreach ($wins as $fila) : ?>
-                                                <?php echo "<tr>"; ?>
-                                                <!-- recorro los datos de cada fila-->
-                                                <?php foreach ($fila as $celda) : ?>
-                                                    <!--imprimo cada dato-->
-                                                    <?php echo "<td>" . $celda . "</td>"; ?>
-                                                <?php endforeach; ?>
-                                                <!--paso id del torneo en el enlace-->
-                                                <td>
-                                                    <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Editar</a>
-                                                    <a href="#" class="btn btn-outline-danger">Eliminar</a>
-                                                </td>
-                                                <?php echo "</tr>"; ?>
-                                            <?php endforeach; ?>
-                                        <?php } ?>
-                                        <!-- fin datos -->
-                                    </tbody>
-                                </table>
+                                        <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off">
+                                        <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+
+                                        <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
+                                        <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                    </div>
+                                    <div class="text-center mb-2">
+                                        <a href="../adminWins_controller.php" 
+                                        class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                        <button type="submit" name="aniadir" class="ms-2 btn btn-primary">Añadir</button>
+                                    </div>
+                                    <!-- Imprimo msj error-->
+                                    <?php if (empty($errors) === false) { ?>
+                                        <?php echo "<ul>"; ?>
+                                        <?php foreach ($errors as $error) : ?>
+                                            <?php echo "<li class='text-danger'>" . $error . "</li>"; ?>
+                                        <?php endforeach; ?>
+                                        <?php echo "</ul>"; ?>
+                                    <?php } ?>
+                                    <!-- fin msj error -->
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -191,7 +156,7 @@
         </div>
     </div>
     <!---------------------------------- Scripts ---------------------------->
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
 
 </body>
 
