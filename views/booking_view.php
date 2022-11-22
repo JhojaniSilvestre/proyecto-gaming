@@ -3,22 +3,22 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<title>Gaming Room</title>
+    <title>Gaming Room</title>
 
-<!-- Bootstrap core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/owl.css" rel="stylesheet">
-<link href="../css/animate.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
 
 
-<!-- Additional CSS Files -->
-<link rel="stylesheet" href="../css/web_style.css">
-<link rel="stylesheet" href="../css/booking_style.css">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../css/web_style.css">
+    <link rel="stylesheet" href="../css/booking_style.css">
 
 </head>
 
@@ -38,8 +38,8 @@
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="welcome_controller.php" class="active">Home</a></li>
-                            <li><a href="../controllers/booking_controller.php">Reservas</a></li>
+                            <li><a href="welcome_controller.php">Home</a></li>
+                            <li><a href="../controllers/booking_controller.php" class="active">Reservas</a></li>
                             <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
                             <li><a href="../controllers/profile_controller.php">Mi cuenta</a></li>
                             <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
@@ -72,20 +72,20 @@
                                         <div class="item-content">
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                                 <div class="col-md-12">
-                                                    <input type="text" name="name" placeholder="E-mail" required>
+                                                    <input type="text" name="emailUser" placeholder="E-mail" required>
                                                 </div>
 
                                                 <div class="col-md-12 mt-3">
-                                                    <input type="email" name="email" placeholder="E-mail Acompañante (Opcional)">
+                                                    <input type="email" name="emailAcomp" placeholder="E-mail Acompañante (Opcional)">
                                                 </div>
 
                                                 <div class="col-md-12">
-                                                    <select class=" mt-3" required>
-                                                            <option selected disabled value="">Puesto</option>
-                                                            <!--recorro el array  -->
-                                                            <?php foreach($seats as $seat_id) : ?>
-                                                                    <?php echo "<option>".$seat_id."</option>"; ?>
-                                                            <?php endforeach; ?>
+                                                    <select name="seat" class=" mt-3" required>
+                                                        <option selected disabled value="">Puesto</option>
+                                                        <!--recorro el array  -->
+                                                        <?php foreach ($seats as $seat_id) : ?>
+                                                            <?php echo "<option>" . $seat_id . "</option>"; ?>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
 
@@ -104,8 +104,17 @@
                                                 </div>
 
                                                 <div class="form-button mt-3 d-flex justify-content-center">
-                                                    <button id="submit" type="submit" class="btn-form">Reservar</button>
+                                                    <button name="submit" type="submit" class="btn-form">Reservar</button>
                                                 </div>
+                                                <!-- Imprimo msj error-->
+                                                <?php if (empty($errors) === false) { ?>
+                                                    <?php echo "<ul>"; ?>
+                                                    <?php foreach ($errors as $error) : ?>
+                                                        <?php echo "<li class='text-danger'>" . $error . "</li>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <?php echo "</ul>"; ?>
+                                                <?php } ?>
+                                                <!-- fin msj error -->
                                             </form>
                                         </div>
                                     </div>
@@ -121,26 +130,27 @@
     </div>
 
     <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci. 
-          
-          <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank" >IES Leonardo Da Vinci</a></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
+
+                        <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
-  <script src="../js/isotope.min.js"></script>
-  <script src="../js/owl-carousel.js"></script>
-  <script src="../js/custom.js"></script>
+    <script src="../js/isotope.min.js"></script>
+    <script src="../js/owl-carousel.js"></script>
+    <script src="../js/custom.js"></script>
 
 </body>
 
