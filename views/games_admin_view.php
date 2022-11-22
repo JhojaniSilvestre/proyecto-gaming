@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
+                            <a class="nav-link" aria-current="page" href="#">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items active">
-                            <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
+                            <a class="nav-link" aria-current="page" href="./tournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./adminWins_controller.php">
+                            <a class="nav-link" aria-current="page" href="#">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
@@ -104,46 +104,37 @@
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3 me-4">Torneos</h1>
-                    <a href="../controllers/crud_tournament/create_controller.php" 
-                    class="btn btn-outline-primary">Crear Torneo</a> 
+                    <h1 class="text-white fw-bold h3 me-4">Juegos</h1>
+                    <input type="button" value="Añadir juego" onclick="window.location.href='../controllers/crud_games/create_games_controller.php'" 
+                    class="btn btn-outline-primary">
                 </div>
 
                 <div class="row">
                     <div class="col-10 mx-auto">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Historial</h4>
+                                <h4 class="card-title">Historial de juegos</h4>
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID Torneo</th>
+                                                <th>ID Juego</th>
                                                 <th>Nombre</th>
-                                                <th>Juego</th>
-                                                <th>Fecha</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Compruebo que existen torneos-->
-                                            <?php if(empty($tournaments) === false){ ?>
-                                                <!-- recorro las filas del array-->
-                                                <?php foreach($tournaments as $fila) : ?>
+                                            <!-- Imprimo datos tabla-->
+                                            <?php if(empty($games) === false){ ?>
+                                                <?php foreach($games as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
-                                                        <!-- recorro los datos de cada fila-->
                                                         <?php foreach($fila as $celda) : ?>
-                                                            <!--imprimo cada dato-->
+                                                            <!--imprimo los datos columna de la fila en la celda"-->
                                                             <?php echo "<td>".$celda."</td>"; ?>
                                                         <?php endforeach;?>
-                                                        <!--paso id del torneo en el enlace-->
-                                                        <td>
-                                                            <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" 
-                                                            class="btn btn-outline-success me-3">Editar</a>
-                                                            <a href="#" 
-                                                            class="btn btn-outline-danger">Eliminar</a>
-                                                        </td>
+                                                        <?php echo "<td><button class='btn btn-success'>
+                                                        <a class='text-decoration-none text-white' href='../views/crud_games/edit_games_view.php'>Editar</a></button></td>"; ?>
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>

@@ -20,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 //redireccionar a login
                 header("location: ../index.php");
-            
-        }
+            }
         } else {
             $email_err = "Email incorrecto";
         }

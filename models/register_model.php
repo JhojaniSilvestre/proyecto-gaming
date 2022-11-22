@@ -40,5 +40,3 @@
         $error_clave = "";
         return true;
      }
-
-?>

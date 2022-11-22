@@ -7,4 +7,3 @@
 		header("location: ../index.php");
 	}
     require_once("../views/profile_view.php");
-?>

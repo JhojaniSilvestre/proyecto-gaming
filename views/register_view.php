@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/register_style.css">
-  
+
   <script src="../js/registerOK.js" type="text/javascript"> </script>
   <title>Formulario Registro</title>
 </head>
@@ -26,7 +26,7 @@
       <!--Imprime mensaje de error-->
       <?php if (isset($error_clave)) { ?>
         <p class="error"><?php echo $error_clave; ?></p>
-      <?php } ?></br/>
+      <?php } ?></br />
       <select id="unittype" name="shift" required>
         <option value="" selected> --Escoge su turno--</option>
         <option value="m"> Mañana</option>

@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="./games_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gamepad fa-stack-1x fa-inverse"></i>
@@ -147,7 +147,7 @@
                                                 <span class="preview-text fs-5 fw-bold">Juegos</span>
                                             </div>
                                             <div class="preview-item-content d-flex align-items-center">
-                                                <input type="button" value="Añadir" onclick="window.location.href='#'" 
+                                                <input type="button" value="Añadir" onclick="window.location.href='../controllers/crud_games/create_games_controller.php'" 
                                                 class="btn btn-outline-success">
                                             </div>
                                         </div>
