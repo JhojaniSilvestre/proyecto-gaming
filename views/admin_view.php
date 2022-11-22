@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -61,7 +61,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="./tournament_controller.php">
+                            <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -79,7 +79,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="./adminWins_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>

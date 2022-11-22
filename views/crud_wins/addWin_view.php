@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Crear torneo</title>
+    <title>Administrar Torneos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Estilo customizado -->
+    <!-- Estilo customizado-->
     <link href="../../css/dashboard.css" rel="stylesheet">
     <!--Trae el estilo del formulario-->
     <link href="../../css/booking_style.css" rel="stylesheet">
+
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -45,7 +46,7 @@
                 <div class="position-sticky pt-5">
                     <ul class="nav flex-column">
                         <li class="nav-item  menu-items">
-                            <a class="nav-link" aria-current="page" href="../../controllers/admin_controller.php">
+                            <a class="nav-link" aria-current="page" href="../admin_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gauge-simple-high fa-stack-1x fa-inverse"></i>
@@ -54,7 +55,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../../controllers/adminUsers_controller.php">
+                            <a class="nav-link" aria-current="page" href="../adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -62,8 +63,8 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
-                            <a class="nav-link" aria-current="page" href="../../controllers/adminTournament_controller.php">
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="../adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -80,7 +81,7 @@
                                 Juegos
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="../adminWins_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -104,52 +105,49 @@
             </nav>
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3">Crear Torneos</h1>
+                <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <h1 class="text-white fw-bold h3 me-4">Victorias</h1>
                 </div>
-
                 <div class="row">
-                    <div class="card col-lg-5 col-10 mx-auto">
-                        <div class="card-body px-2 py-3 px-md-3 py-md-5">
-                            <h3 class="card-title text-left mb-3">Crear nuevo torneo</h3>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                <div>
-                                    <input type="text" name="nombre" id="nombre" placeholder="Nombre del torneo">
-                                </div>
-                                <div>
-                                    <input type="date" name="fecha" id="fecha" placeholder="Fecha del torneo">
-                                </div>
-                                <div>
-                                    <select name="juego">
-                                        <!--recorro el array  -->
-                                        <?php foreach($games as $id_game => $game) : ?>
-                                            <?php echo "<option value='".$id_game."'>".$game."</option>"; ?>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="mt-3 mb-4">
-                                    <label class="mb-3 me-2" for="shift">Hora:</label>
+                    <div class="col-10 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title text-left mb-3">Añadir participante Ganador</h3>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <div>
+                                        <input type="text" name="username" id="username" placeholder="Nombre de usuario">
+                                    </div>
+                                    <div>
+                                        <input type="text" name="nomTourn" id="nomTourn" placeholder="Nombre del torneo">
+                                    </div>
+                                    <div>
+                                        <input type="date" name="fecha" id="fecha" placeholder="Fecha del torneo">
+                                    </div>
+                                    <div class="mt-3 mb-4">
+                                        <label class="mb-3 me-2" for="shift">Hora:</label>
 
-                                    <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off">
-                                    <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+                                        <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off">
+                                        <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
 
-                                    <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
-                                    <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
-                                </div>
-                                <div class="text-center mb-2">
-                                    <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
-                                    <button type="submit" name="crear" class="ms-2 btn btn-primary">Crear</button>
-                                </div>
-                                <!-- Imprimo msj error-->
-                                <?php if(empty($errors) === false){ ?>
-                                    <?php echo "<ul>"; ?>
-                                        <?php foreach($errors as $error) : ?>
-                                            <?php echo "<li class='text-danger'>".$error."</li>"; ?>
+                                        <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
+                                        <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                    </div>
+                                    <div class="text-center mb-2">
+                                        <a href="../adminWins_controller.php" 
+                                        class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                        <button type="submit" name="aniadir" class="ms-2 btn btn-primary">Añadir</button>
+                                    </div>
+                                    <!-- Imprimo msj error-->
+                                    <?php if (empty($errors) === false) { ?>
+                                        <?php echo "<ul>"; ?>
+                                        <?php foreach ($errors as $error) : ?>
+                                            <?php echo "<li class='text-danger'>" . $error . "</li>"; ?>
                                         <?php endforeach; ?>
-                                    <?php echo "</ul>"; ?>
-                                <?php } ?>
-                                <!-- fin msj error -->
-                            </form>
+                                        <?php echo "</ul>"; ?>
+                                    <?php } ?>
+                                    <!-- fin msj error -->
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

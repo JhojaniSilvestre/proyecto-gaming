@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="../../controllers/adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items active">
-                            <a class="nav-link" aria-current="page" href="../../controllers/tournament_controller.php">
+                            <a class="nav-link" aria-current="page" href="../../controllers/adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -90,7 +90,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="../adminWins_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
@@ -122,33 +122,54 @@
                         <div class="card-body px-2 py-3 px-md-3 py-md-5">
                             <h3 class="card-title text-left mb-3">Editar información del torneo</h3>
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                                 <div>
-                                    <input type="text" name="cnombre" id="cnombre" placeholder="Nombre del torneo">
+                                    <input type="text" name="nombre" id="nombre" value="<?php echo $name; ?>">
                                 </div>
                                 <div>
-                                    <input type="date" name="cfecha" id="cfecha" placeholder="Fecha del torneo">
+                                    <input type="date" name="fecha" id="fecha" value="<?php echo $date; ?>">
                                 </div>
                                 <div>
-                                    <select required>
-                                        <option selected disabled value="">Juego</option>
+                                    <select name="juego">
                                         <!--recorro el array  -->
-                                        <?php foreach ($seats as $seat_id) : ?>
-                                            <?php echo "<option>" . $seat_id . "</option>"; ?>
+                                        <?php foreach($games as $id_game => $game) : ?>
+                                            <?php if($id_game == $idgame){ ?>
+                                                <?php echo "<option value='".$id_game."' selected='true'>".$game."</option>"; ?>
+                                            <?php } else{ ?>
+                                                <?php echo "<option value='".$id_game."'>".$game."</option>"; ?>
+                                            <?php } ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="mt-3 mb-4">
                                     <label class="mb-3 me-2" for="shift">Hora:</label>
-
-                                    <input type="radio" class="btn-check" name="shift" id="m" value="m" autocomplete="off" required>
+                                <?php if($shift == "m"){ ?>
+                                    <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off" checked>
                                     <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
 
-                                    <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off" required>
+                                    <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                <?php } else{ ?>
+                                    <input type="radio" class="btn-check" name="turno" id="m" value="m" autocomplete="off">
+                                    <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+
+                                    <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off" checked>
+                                    <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                <?php } ?>
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn-form">Actualizar</button>
+                                <div class="text-center mb-2">
+                                    <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                    <button type="submit" name="edit" class="ms-2 btn btn-success">Actualizar</button>
                                 </div>
+                                <!-- Imprimo msj error-->
+                                <?php if(empty($errors) === false){ ?>
+                                    <?php echo "<ul>"; ?>
+                                        <?php foreach($errors as $error) : ?>
+                                            <?php echo "<li class='text-danger'>".$error."</li>"; ?>
+                                        <?php endforeach; ?>
+                                    <?php echo "</ul>"; ?>
+                                <?php } ?>
+                                <!-- fin msj error -->
                             </form>
                         </div>
                     </div>
