@@ -39,9 +39,9 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="welcome_controller.php" class="active">Home</a></li>
-                            <li><a href="booking_view.php">Reservas</a></li>
-                            <li><a href="tournament_view.php">Torneos</a></li>
-                            <li><a href="profile_controller.php">Mi cuenta</a></li>
+                            <li><a href="../controllers/booking_controller.php">Reservas</a></li>
+                            <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
+                            <li><a href="../controllers/profile_controller.php">Mi cuenta</a></li>
                             <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
                         </ul>
                         <a class='menu-trigger'>

@@ -981,3 +981,55 @@ body {
 }
 
 /*-------------- ---------------*/
+
+/*-------------- tabla ---------------*/
+
+.table{
+  margin-bottom: 0;
+  color: #6c7293;
+  border-color: #2c2e33;
+  text-align: center!important;
+}
+
+.table tr {
+  color: #6c7293 ;
+}
+
+.table td{
+  color: #6c7293;
+}
+
+.table td:hover{
+  background-color : #7a51f4;
+  color: white;
+}
+
+/*-------------- tournament ---------------*/
+
+.tournament-area {
+  margin-top: 60px;
+  padding: 30px;
+  background-color: #1f2122;
+  border-radius: 23px;
+}
+
+.main-button-tournament a {
+  font-size: 14px;
+  color: #fff;
+  background-color: #7a51f4;
+  padding: 12px 30px;
+  display:-webkit-box ;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: justify;
+  overflow: hidden;
+  justify-content:center;
+}
+
+.main-button-tournament a:hover {
+  background-color: green;
+  color: #7a51f4;
+}
