@@ -71,7 +71,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="./games_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gamepad fa-stack-1x fa-inverse"></i>

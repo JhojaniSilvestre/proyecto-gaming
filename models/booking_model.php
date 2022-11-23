@@ -52,6 +52,23 @@ function comprobarSitioLibre($conn,$seat,$date){
     }
 } 
 
+function reservaNoRepetida($conn,$date,$idUser){
+    try {
+        $stmt = $conn->prepare("SELECT booking.id_user FROM seats,booking where 
+        date = '$date' AND booking.id_user=$idUser");
+        $stmt->execute(); //ejecuta la select
+        $correcto=true;
+        if ($stmt->rowCount() > 0) {
+            $correcto= false;
+        }
+        return $correcto;
+        
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+} 
+
 function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
     try {
         $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion) 

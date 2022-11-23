@@ -134,7 +134,7 @@
                                                 <span class="preview-text fs-5 fw-bold">Torneos</span>
                                             </div>
                                             <div class="preview-item-content d-flex align-items-center">
-                                                <input type="button" value="Crear" onclick="window.location.href='../controllers/crud_tournament/create_controller.php'" 
+                                                <input type="button" value="Crear" onclick="window.location.href='./crud_tournament/create_controller.php'" 
                                                 class="btn btn-outline-info">
                                             </div>
                                         </div>
@@ -147,7 +147,7 @@
                                                 <span class="preview-text fs-5 fw-bold">Juegos</span>
                                             </div>
                                             <div class="preview-item-content d-flex align-items-center">
-                                                <input type="button" value="Añadir" onclick="window.location.href='../controllers/crud_games/create_games_controller.php'" 
+                                                <input type="button" value="Añadir" onclick="window.location.href='./crud_games/create_games_controller.php'" 
                                                 class="btn btn-outline-success">
                                             </div>
                                         </div>
@@ -160,7 +160,7 @@
                                                 <span class="preview-text fs-5 fw-bold">Victorias</span>
                                             </div>
                                             <div class="preview-item-content d-flex align-items-center">
-                                                <input type="button" value="Añadir" onclick="window.location.href='#'" 
+                                                <input type="button" value="Añadir" onclick="window.location.href='./crud_wins/addWin_controller.php'" 
                                                 class="btn btn-outline-danger">
                                             </div>
                                         </div>
