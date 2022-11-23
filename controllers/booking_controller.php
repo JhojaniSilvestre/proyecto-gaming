@@ -57,12 +57,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			/* funcion para obtener la fecha actual */
 			date_default_timezone_set('Europe/Madrid');
 			$dateNow = date("Y-m-d");
+
 			if ($_SESSION['shift'] != $turn) {
 				array_push($errors, "No puede reservar un turno al que no pertenezca");
 				$correct = false;
 			}
 			if ($date < $dateNow) {
 				array_push($errors, "Introduzca una fecha correcta");
+				$correct = false;
+			}
+
+			$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
+			if ($resultado == false) {
+				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
 				$correct = false;
 			}
 		}
