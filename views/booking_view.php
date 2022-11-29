@@ -79,16 +79,6 @@
                                                     <input type="email" name="emailAcomp" placeholder="E-mail Acompañante (Opcional)">
                                                 </div>
 
-                                                <div class="col-md-12">
-                                                    <select name="seat" class=" mt-3" required>
-                                                        <option selected disabled value="">Puesto</option>
-                                                        <!--recorro el array  -->
-                                                        <?php foreach ($seats as $seat_id) : ?>
-                                                            <?php echo "<option>" . $seat_id . "</option>"; ?>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-
                                                 <div class="col-md-12 mt-3">
                                                     <input type="date" name="fecha" required>
                                                 </div>
@@ -102,7 +92,19 @@
                                                     <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off" required>
                                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                                 </div>
-
+                                                <button name="disponibilidad" type="submit" class="">Ver disponibilidad</button>
+                                                <!-- Imprimo puestos disponibles-->
+                                                <?php if (empty($seats) === false) { ?>
+                                                    <div class="col-md-12">
+                                                        <select name="seat" class=" mt-3" required>
+                                                            <!--recorro el array  -->
+                                                            <?php foreach ($seats as $seat_id) : ?>
+                                                                <?php echo "<option>" . $seat_id . "</option>"; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                <?php } ?>
+                                                <!-- fin  -->
                                                 <div class="form-button mt-3 d-flex justify-content-center">
                                                     <button name="submit" type="submit" class="btn-form">Reservar</button>
                                                 </div>

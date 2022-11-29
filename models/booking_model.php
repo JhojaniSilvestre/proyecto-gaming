@@ -1,8 +1,10 @@
 <?php
-function obtenerPuestos($conn)
+
+function disponibilidadPuestos($conn, $datetime)
 {
     try {
-        $stmt = $conn->prepare("SELECT id_seat FROM seats");
+        $stmt = $conn->prepare("SELECT id_seat FROM seats 
+        WHERE seats.id_seat NOT IN (SELECT booking.id_seat FROM booking WHERE booking.date = '$datetime')");
         $stmt->execute(); //ejecuta la select
 
         $seats = array();
@@ -19,6 +21,7 @@ function obtenerPuestos($conn)
         echo "Error: " . $e->getMessage();
     }
 }
+
 
 function comprobarEmail($conn, $emailUser)
 {
