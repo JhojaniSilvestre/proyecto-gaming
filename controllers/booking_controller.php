@@ -11,13 +11,13 @@ require_once '../db/db.php';
 $conn = generarConexion();
 
 require_once '../models/booking_model.php';
+require_once '../models/crudTournament_model.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$errors = array();
 	$correct = true;
 
 	if (isset($_POST['disponibilidad'])) {
-		var_dump(($_POST));
 		if ($_POST["fecha"] == "" ||  $_POST["shift"] == "") {
 			array_push($errors, "Tiene que seleccionar una fecha y hora para ver la disponibilidad.");
 			$correct = false;

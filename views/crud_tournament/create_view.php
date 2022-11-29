@@ -136,6 +136,9 @@
                                     <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off">
                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                 </div>
+                                <div>
+                                    <input type="text" name="nombreUser" id="nombreUser" placeholder="Nombre usuario de responsable">
+                                </div>
                                 <div class="text-center mb-2">
                                     <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
                                     <button type="submit" name="crear" class="ms-2 btn btn-primary">Crear</button>

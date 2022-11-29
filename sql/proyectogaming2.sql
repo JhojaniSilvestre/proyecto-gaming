@@ -202,7 +202,8 @@ ALTER TABLE `participants`
 -- Filtros para la tabla `tournaments`
 --
 ALTER TABLE `tournaments`
-  ADD CONSTRAINT `tournaments_FK_1` FOREIGN KEY (`id_game`) REFERENCES `games` (`id_game`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tournaments_FK_1` FOREIGN KEY (`id_game`) REFERENCES `games` (`id_game`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tournaments_FK_2` FOREIGN KEY (`responsible`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `wins`

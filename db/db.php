@@ -6,7 +6,7 @@
 		
 		$servername = "localhost";
 		$username = "root";
-		$password = "rootroot";
+		$password = "";
 		$dbname = "proyectogaming";
 // contraseña generada: 90#/e=8+=2W(4OuJ
 
