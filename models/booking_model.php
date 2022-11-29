@@ -1,8 +1,10 @@
 <?php
-function obtenerPuestos($conn)
+
+function disponibilidadPuestos($conn, $datetime)
 {
     try {
-        $stmt = $conn->prepare("SELECT id_seat FROM seats");
+        $stmt = $conn->prepare("SELECT id_seat FROM seats 
+        WHERE seats.id_seat NOT IN (SELECT booking.id_seat FROM booking WHERE booking.date = '$datetime')");
         $stmt->execute(); //ejecuta la select
 
         $seats = array();
@@ -19,6 +21,7 @@ function obtenerPuestos($conn)
         echo "Error: " . $e->getMessage();
     }
 }
+
 
 function comprobarEmail($conn, $emailUser)
 {
@@ -71,7 +74,7 @@ function reservaNoRepetida($conn,$date,$idUser){
 
 function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
     try {
-        $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion) 
+        $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion,responsible,active) 
         VALUES ('$date',$idSeat,$idUser,$idComp)";
         $conn->exec($insert);
 

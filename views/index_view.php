@@ -14,18 +14,18 @@
         <div class="card">
             <div class="box">
                 <div class="content">
-                    <h2>IES</h2>
-                    <h3>Login Usuario</h3>
-                    <a href="controllers/userLogin_controller.php">Tengo una cuenta</a>
+                    <h2>Leonardo</h2>
+                    <h3>Login Admin</h3>
+                    <a href="controllers/adminLogin_controller.php">Tengo una cuenta</a>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="box">
                 <div class="content">
-                    <h2>Leonardo</h2>
-                    <h3>Login Admin</h3>
-                    <a href="controllers/adminLogin_controller.php">Tengo una cuenta</a>
+                    <h2>IES</h2>
+                    <h3>Login Usuario</h3>
+                    <a href="controllers/userLogin_controller.php">Tengo una cuenta</a>
                 </div>
             </div>
         </div>

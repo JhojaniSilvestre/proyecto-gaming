@@ -11,13 +11,41 @@ require_once '../db/db.php';
 $conn = generarConexion();
 
 require_once '../models/booking_model.php';
-//array que contiene las pelis disponibles
-$seats = obtenerPuestos($conn);
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+	$errors = array();
+	$correct = true;
+
+	if (isset($_POST['disponibilidad'])) {
+		var_dump(($_POST));
+		if ($_POST["fecha"] == "" ||  $_POST["shift"] == "") {
+			array_push($errors, "Tiene que seleccionar una fecha y hora para ver la disponibilidad.");
+			$correct = false;
+		}else{
+			$date = limpiar($_POST["fecha"]);
+			$turn = limpiar($_POST["shift"]);
+
+				//fecha formato datetime según la hora elegida
+				if ($turn == "m")
+					$datetime = $date . " 11:15:00";
+				else
+					$datetime = $date . " 17:45:00";
+		}
+
+		if ($correct) {
+
+			$seats = disponibilidadPuestos($conn, $datetime);
+			
+		}
+	}
+
 	if (isset($_POST['submit'])) {
-		$errors = array();
-		$correct = true;
-		if ($_POST["emailUser"] == "" || $_POST["fecha"] == "" || $_POST["seat"] == "" || $_POST["shift"] == "") {
+		var_dump(($_POST));
+		if (isset($_POST["seat"])) {
+			array_push($errors, "Debe elegir un puesto disponible.");
+			$correct = false;
+		}
+		if ($_POST["emailUser"] == "" || $_POST["fecha"] == "" || $_POST['shift'] == "") {
 			array_push($errors, "No puede dejar campos en blanco o sin seleccionar.");
 			$correct = false;
 		} else {
