@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `id_seat` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_companion` int(11) DEFAULT NULL,
-  `reponsible` tinyint(1) DEFAULT NULL,
+  `responsible` BOOLEAN DEFAULT NULL,
   `active` BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (`id_booking`),
   KEY `booking_FK` (`id_user`),
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `tournaments` (
   `name` varchar(100) NOT NULL,
   `date` datetime NOT NULL,
   `id_game` int(11) NOT NULL,
-  `responsible` BOOLEAN NOT NULL DEFAULT TRUE,
+  `responsible` int(11) NOT NULL,
   `active` BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (`id_tournament`),
   KEY `tournaments_FK_1` (`id_game`)

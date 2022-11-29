@@ -104,13 +104,6 @@
         </footer>
 
 
-<<<<<<< HEAD
-        <!-- Scripts -->
-        <!-- Bootstrap core JavaScript -->
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/custom.js"></script>
-=======
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="../js/jquery.min.js"></script>
@@ -119,7 +112,6 @@
   <script src="../js/isotope.min.js"></script>
   <script src="../js/owl-carousel.js"></script>
   <script src="../js/custom.js"></script>
->>>>>>> main
 
 
 </body>
