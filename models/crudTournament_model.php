@@ -2,15 +2,15 @@
 
 function obtenerTorneos($conn){
     try {
-        $stmt = $conn->prepare("SELECT id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame FROM tournaments, games
-            WHERE tournaments.id_game = games.id_game");
+        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username 
+                                FROM tournaments,games,users WHERE tournaments.id_game = games.id_game AND users.id_user = tournaments.responsible");
         $stmt->execute();
         $tournaments = array();
         
         if($stmt->rowCount() > 0){
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             foreach($stmt->fetchAll() as $row) {
-                $tournaments[] =array($row["id_tournament"],$row["nametourn"],$row["nomgame"],$row["date"]); 
+                $tournaments[] =array($row["id_tournament"],$row["nametourn"],$row["nomgame"],$row["date"],$row["username"]); 
             }
         }
         return $tournaments;
@@ -22,8 +22,8 @@ function obtenerTorneos($conn){
 
 function obtenerTorneoEspecifico($conn, $id){
     try {
-        $stmt = $conn->prepare("SELECT id_tournament,tournaments.name AS nametourn,date, games.id_game AS idgame FROM tournaments, games
-            WHERE tournaments.id_game = games.id_game AND id_tournament = $id");
+        $stmt = $conn->prepare("SELECT id_tournament,tournaments.name AS nametourn,date, games.id_game AS idgame,username FROM tournaments,games,users
+            WHERE tournaments.id_game = games.id_game AND users.id_user=tournaments.responsible AND id_tournament = $id ");
         $stmt->execute();
         return $stmt;
     }
@@ -46,6 +46,22 @@ function obtenerJuegos($conn){
             }
         }
         return $games;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function obtenerIdResponsable($conn,$nombreUser){
+    try {
+        $stmt = $conn->prepare("SELECT id_user FROM users where username = '$nombreUser' AND active = 1");
+        $stmt->execute();
+        $id_responsible="";
+        
+        if ($stmt->rowCount() > 0) {
+            $id_responsible = $stmt->fetchColumn();
+        }
+        return $id_responsible;
     }
     catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -94,16 +110,18 @@ function generarIdTorneo($conn){
     }
 }
 
-function crearTorneo($conn,$idTournmt,$name,$datetime,$idgame){
+function crearTorneo($conn,$idTournmt,$name,$datetime,$idgame,$id_responsible){
     try {
-        $insert = "INSERT INTO tournaments (id_tournament,name,date,id_game) 
-        VALUES ($idTournmt,'$name','$datetime',$idgame)";
+        $insert = "INSERT INTO tournaments (id_tournament,name,date,id_game,responsible,active) 
+        VALUES ($idTournmt,'$name','$datetime',$idgame,$id_responsible,1)";
         $conn->exec($insert);
 
 	}catch(PDOException $e){
 		 echo "Error: ", $e-> getMessage();
 	}
 }
+
+
 
 /*----------------- Update functions ---------------------------*/
 
@@ -131,9 +149,9 @@ function fechaDisponibleEdit($conn,$id,$datetime){
     }
 }
 
-function updateTorneo($conn,$id,$name,$datetime,$idgame){
+function updateTorneo($conn,$id,$name,$datetime,$idgame,$id_responsible){
     try {
-        $update = "UPDATE tournaments SET name = '$name', date = '$datetime', id_game = $idgame 
+        $update = "UPDATE tournaments SET name = '$name', date = '$datetime', id_game = $idgame, responsible=$id_responsible 
         WHERE id_tournament = $id";
         $conn->exec($update);
 
@@ -141,5 +159,52 @@ function updateTorneo($conn,$id,$name,$datetime,$idgame){
         echo "No se ha podido actualizar el registro", $e-> getMessage();
     }
 }
+
+function obtenerTorneoInscripcion($conn, $id){
+    try {
+        $stmt = $conn->prepare("SELECT id_tournament,tournaments.name AS nametourn,date, games.name ,username FROM tournaments,games,users
+            WHERE tournaments.id_game = games.id_game AND users.id_user=tournaments.responsible AND id_tournament = $id ");
+        $stmt->execute();
+        return $stmt;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function disponibilidadPuestosTorneo($conn, $datetime)
+{
+    try {
+        $stmt = $conn->prepare("SELECT id_seat FROM seats 
+        WHERE seats.id_seat NOT IN (SELECT participants.id_seat FROM participants,tournaments 
+        WHERE participants.id_tournament=tournaments.id_tournament AND date = '$datetime')");
+        $stmt->execute(); //ejecuta la select
+
+        $seats = array();
+
+        if ($stmt->rowCount() > 0) {
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            foreach ($stmt->fetchAll() as $row) {
+                array_push($seats, $row["id_seat"]);
+            }
+        }
+        return $seats; //devuelvo el array
+
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function inscribirseTorneo($conn,$idTournmt,$id_seat,$id_user){
+    try {
+        $insert = "INSERT INTO participants (id_tournament,id_seat,id_user,active) 
+        VALUES ($idTournmt,$id_seat,$id_user,1)";
+        $conn->exec($insert);
+
+	}catch(PDOException $e){
+		 echo "Error: ", $e-> getMessage();
+	}
+}
+
 
 ?>

@@ -157,6 +157,9 @@
                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                 <?php } ?>
                                 </div>
+                                <div>
+                                    <input type="text" name="nombreUser" id="nombreUser" value="<?php echo $userName; ?>">
+                                </div>
                                 <div class="text-center mb-2">
                                     <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
                                     <button type="submit" name="edit" class="ms-2 btn btn-success">Actualizar</button>

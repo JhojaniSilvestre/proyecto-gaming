@@ -82,3 +82,4 @@ function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
 		 echo "Error: ", $e-> getMessage();
 	}
 }
+
