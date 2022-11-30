@@ -22,9 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			array_push($errors, "Tiene que seleccionar una fecha y hora para ver la disponibilidad.");
 			$correct = false;
 		}else{
+			
 			$date = limpiar($_POST["fecha"]);
 			$turn = limpiar($_POST["shift"]);
-
+			$emailUser = limpiar($_POST["emailUser"]);
+			$emailAcomp = limpiar($_POST["emailAcomp"]);
+			
 				//fecha formato datetime según la hora elegida
 				if ($turn == "m")
 					$datetime = $date . " 11:15:00";
@@ -35,13 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		if ($correct) {
 
 			$seats = disponibilidadPuestos($conn, $datetime);
-			
+
+			if(empty($seats)){
+                 $puestoVacio = " <p class='text-danger'>No hay puestos disponibles </p>";
+			}
 		}
 	}
 
 	if (isset($_POST['submit'])) {
-		var_dump(($_POST));
-		if (isset($_POST["seat"])) {
+		if (!isset($_POST["seat"])) {
 			array_push($errors, "Debe elegir un puesto disponible.");
 			$correct = false;
 		}
@@ -76,12 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 				}
 			}
 
-			$resultado = comprobarSitioLibre($conn, $seat, $datetime);
-			if ($resultado == false) {
-				array_push($errors, "Sitio no disponible");
-				$correct = false;
-			}
-
 			/* funcion para obtener la fecha actual */
 			date_default_timezone_set('Europe/Madrid');
 			$dateNow = date("Y-m-d");
@@ -95,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 				$correct = false;
 			}
 
-			$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
+			/*$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
 			if ($resultado == false) {
 				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
 				$correct = false;
-			}
+			}*/
 		}
 
 		if ($correct) {

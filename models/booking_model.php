@@ -38,23 +38,6 @@ function comprobarEmail($conn, $emailUser)
     }
 }
 
-function comprobarSitioLibre($conn,$seat,$date){
-    try {
-        $stmt = $conn->prepare("SELECT seats.id_seat FROM seats,booking where seats.id_seat=booking.id_seat 
-        AND date = '$date' AND booking.id_seat=$seat");
-        $stmt->execute(); //ejecuta la select
-        $correcto=true;
-        if ($stmt->rowCount() > 0) {
-            $correcto= false;
-        }
-        return $correcto;
-        
-    }
-    catch(PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-} 
-
 function reservaNoRepetida($conn,$date,$idUser){
     try {
         $stmt = $conn->prepare("SELECT booking.id_user FROM seats,booking where 
@@ -72,11 +55,22 @@ function reservaNoRepetida($conn,$date,$idUser){
     }
 } 
 
+
+
 function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
     try {
-        $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion,responsible,active) 
-        VALUES ('$date',$idSeat,$idUser,$idComp)";
-        $conn->exec($insert);
+        $stmt = $conn->prepare("SELECT id_user FROM booking WHERE date = '$date'");
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion,responsible,active) 
+            VALUES ('$date',$idSeat,$idUser,$idComp,0,1)";
+            $conn->exec($insert);
+        }else{
+            $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion,responsible,active) 
+            VALUES ('$date',$idSeat,$idUser,$idComp,1,1)";
+            $conn->exec($insert);
+        }
+        
 
 	}catch(PDOException $e){
 		 echo "Error: ", $e-> getMessage();
