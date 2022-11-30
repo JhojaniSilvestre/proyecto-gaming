@@ -22,35 +22,35 @@
 
 <body>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="welcome_controller.php" class="logo">
-              <img src="../img/gamin-room-logo-purple.png" alt="">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li><a href="welcome_controller.php">Home</a></li>
-              <li><a href="../controllers/booking_controller.php">Reservas</a></li>
-              <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
-              <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
-              <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
-            </ul>
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="welcome_controller.php" class="logo">
+                            <img src="../img/gamin-room-logo-purple.png" alt="">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="welcome_controller.php">Home</a></li>
+                            <li><a href="../controllers/booking_controller.php">Reservas</a></li>
+                            <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
+                            <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
+                            <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+    </header>
+    <!-- ***** Header Area End ***** -->
 
     <div class="container">
         <div class="row">
@@ -69,26 +69,47 @@
                                         <div class="item-content">
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                                 <div class="col-md-12">
-                                                    <input type="text" name="emailUser" placeholder="E-mail">
+                                                    <input type="text" name="emailUser" placeholder="E-mail" value="<?php if (isset($emailUser)) {
+                                                                                                                        echo $emailUser;
+                                                                                                                    } ?>">
                                                 </div>
 
                                                 <div class="col-md-12 mt-3">
-                                                    <input type="email" name="emailAcomp" placeholder="E-mail Acompañante (Opcional)">
+                                                    <input type="email" name="emailAcomp" placeholder="E-mail Acompañante (Opcional)" value="<?php if (isset($emailAcomp)) {
+                                                                                                                                                    echo $emailAcomp;
+                                                                                                                                                } ?>">
                                                 </div>
 
                                                 <div class="col-md-12 mt-3">
-                                                    <input type="date" name="fecha">
+                                                    <input type="date" name="fecha" value="<?php if (isset($date)) {
+                                                                                                echo $date;
+                                                                                            } ?>">
                                                 </div>
 
                                                 <div class="col-md-12 mt-3">
                                                     <label class="mb-3 mr-1" for="shift">Hora:</label>
+                                                    <?php if (isset($turn)) { ?>
+                                                        <?php if ($turn == 'm') { ?>
+                                                            <input type="radio" class="btn-check" name="shift" id="m" value="m" autocomplete="off" checked>
+                                                            <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+                                                            <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off">
+                                                            <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                                        <?php } else { ?>
+                                                            <input type="radio" class="btn-check" name="shift" id="m" value="m" autocomplete="off">
+                                                            <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+                                                            <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off" checked>
+                                                            <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                                        <?php } ?>
+                                                    <?php } else { ?>
 
-                                                    <input type="radio" class="btn-check" name="shift" id="m" value="m" autocomplete="off">
-                                                    <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+                                                        <input type="radio" class="btn-check" name="shift" id="m" value="m" autocomplete="off">
+                                                        <label class="btn btn-sm btn-outline-secondary" for="m">11:15 - 11:40</label>
+                                                        <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off">
+                                                        <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
+                                                    <?php } ?>
 
-                                                    <input type="radio" class="btn-check" name="shift" id="t" value="t" autocomplete="off">
-                                                    <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                                 </div>
+
                                                 <button name="disponibilidad" type="submit" class="">Ver disponibilidad</button>
                                                 <!-- Imprimo puestos disponibles-->
                                                 <?php if (empty($seats) === false) { ?>
@@ -101,6 +122,9 @@
                                                         </select>
                                                     </div>
                                                 <?php } ?>
+
+                                                <?php if (isset($puestoVacio)) { echo $puestoVacio;} ?>">
+                                              
                                                 <!-- fin  -->
                                                 <div class="form-button mt-3 d-flex justify-content-center">
                                                     <button name="submit" type="submit" class="btn-form">Reservar</button>
