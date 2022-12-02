@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id_admin'])) {
+    session_unset();
+    session_destroy();
+    header("location: ../index.php");
+}
+?>
 <!doctype html>
 <html lang="es">
 
@@ -5,14 +14,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Crear torneo</title>
+    <title>Panel Admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilo customizado -->
-    <link href="../../css/dashboard.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
     <!--Trae el estilo del formulario-->
-    <link href="../../css/booking_style.css" rel="stylesheet">
+    <link href="../css/booking_style.css" rel="stylesheet">
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -45,7 +54,7 @@
                 <div class="position-sticky pt-5">
                     <ul class="nav flex-column">
                         <li class="nav-item  menu-items">
-                            <a class="nav-link" aria-current="page" href="../admin_controller.php">
+                            <a class="nav-link" aria-current="page" href="../controllers/admin_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gauge-simple-high fa-stack-1x fa-inverse"></i>
@@ -54,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../adminUsers_controller.php">
+                            <a class="nav-link" aria-current="page" href="adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
@@ -62,8 +71,8 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
-                            <a class="nav-link" aria-current="page" href="../tournament_controller.php">
+                        <li class="nav-item menu-items ">
+                            <a class="nav-link" aria-current="page" href="adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>
@@ -72,7 +81,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../games_controller.php">
+                            <a class="nav-link" aria-current="page" href="crud_games/games_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gamepad fa-stack-1x fa-inverse"></i>
@@ -81,7 +90,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../adminWins_controller.php">
+                            <a class="nav-link" aria-current="page" href="adminWins_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
@@ -89,8 +98,8 @@
                                 Victorias
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../adminIncidents_controller.php">
+                        <li class="nav-item menu-items active">
+                            <a class="nav-link" aria-current="page" href="adminIncidents_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-circle-exclamation fa-stack-1x fa-inverse"></i>
@@ -100,7 +109,7 @@
                         </li>
                         <hr class="bg-danger border-2 border-top mx-2">
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../../index.php">
+                            <a class="nav-link" aria-current="page" href="../index.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-right-from-bracket fa-stack-1x fa-inverse"></i>
@@ -114,33 +123,38 @@
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3">Añadir nuevo juego</h1>
+                    <h1 class="text-white fw-bold h3">Editar Incidencia</h1>
                 </div>
 
                 <div class="row">
                     <div class="card col-lg-5 col-10 mx-auto">
                         <div class="card-body px-2 py-3 px-md-3 py-md-5">
-                            <h3 class="card-title text-left mb-3">Añadir nuevo juego</h3>
+                            <h3 class="card-title text-left mb-3">Editar información de la incidencia</h3>
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                                 <div>
-                                    <input type="text" name="nombre" id="nombre" placeholder="Nombre del juego">
+                                    <input type="text" name="title" id="title" value="<?php echo $title; ?>">
+                                </div>
+                                <div>
+                                    <input type="date" name="date" id="date" value="<?php echo $date; ?>">
+                                </div>
+                                <div>
+                                    <input type="text" name="description" id="description" value="<?php echo $description; ?>">
                                 </div>
                                 <div class="text-center mb-2">
-                                    <button type="submit" name="añadir" class="btn-form">Añadir</button>
+                                    <a href="adminIncidents_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                    <button type="submit" name="edit" class="ms-2 btn btn-success">Actualizar</button>
                                 </div>
                                 <!-- Imprimo msj error-->
-                                <?php if(empty($errors) === false){ ?>
-                                    <?php echo "<ul>"; ?>
-                                        <?php foreach($errors as $error) : ?>
-                                            <?php echo "<li class='text-danger'>".$error."</li>"; ?>
-                                        <?php endforeach; ?>
-                                    <?php echo "</ul>"; ?>
+                                <?php if (isset($errors)) { ?>
+                                    <?php echo $errors; ?>
                                 <?php } ?>
                                 <!-- fin msj error -->
                             </form>
                         </div>
                     </div>
                 </div>
+
             </main>
             <!----------------------------------------END MAIN SECTION ------------------------------------------>
         </div>
