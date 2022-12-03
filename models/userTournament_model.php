@@ -4,7 +4,7 @@ function obtenerTorneosMañana($conn)
 {
     try {
         $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username 
-        FROM tournaments,games,users WHERE tournaments.id_game = games.id_game AND users.id_user = tournaments.responsible AND date LIKE '%15:00'; ");
+        FROM tournaments,games,users WHERE tournaments.id_game = games.id_game AND users.id_user = tournaments.responsible AND date LIKE '%15:00' AND tournaments.active = 1; ");
         $stmt->execute();
         $tournaments = array();
 
@@ -24,7 +24,7 @@ function obtenerTorneosTarde($conn)
 {
     try {
         $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username 
-        FROM tournaments,games,users WHERE tournaments.id_game = games.id_game AND users.id_user = tournaments.responsible AND date LIKE '%45:00'; ");
+        FROM tournaments,games,users WHERE tournaments.id_game = games.id_game AND users.id_user = tournaments.responsible AND date LIKE '%45:00' AND tournaments.active = 1; ");
         $stmt->execute();
         $tournaments = array();
 
