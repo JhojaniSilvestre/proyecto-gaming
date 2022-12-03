@@ -16,4 +16,15 @@
         }
     }
 
+    function obtenerEmails($conn){
+        try {
+            $stmt = $conn->prepare("SELECT email FROM users");
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     
