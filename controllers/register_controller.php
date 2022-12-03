@@ -27,6 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $correct = false;
         }
         
+        if(obtenerUsers($conexion)){
+            array_push($error_clave, "Ya existe ese nombre de usuario");
+            $correct = false;
+        }
+
         if (strlen($password) < 6) {
             array_push($error_clave, "La clave debe tener al menos 6 caracteres");
             $correct = false;
