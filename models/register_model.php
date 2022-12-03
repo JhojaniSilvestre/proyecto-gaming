@@ -27,4 +27,14 @@
         }
     }
 
-    
+    function obtenerUsers($conn){
+        try {
+            $stmt = $conn->prepare("SELECT username from users");
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+?>
