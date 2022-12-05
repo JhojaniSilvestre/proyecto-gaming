@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors = array();
         $correct = true;
         //compruebo que no hay campos vacios o sin seleccionar
-        if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "" || $_POST["nombreUser"] == "") {
+        if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "") {
             array_push($errors, "No puede dejar campos en blanco o sin seleccionar.");
             $correct = false;
         } else {
@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $date = limpiar($_POST["fecha"]);
             $idgame = limpiar($_POST["juego"]);
             $shift = limpiar($_POST["turno"]);
-            $nombreUser = limpiar($_POST["nombreUser"]);
 
             //fecha formato datetime según la hora elegida
             if ($shift == "m")
@@ -55,16 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
             }
 
-            $id_responsible = obtenerIdResponsable($conn, $nombreUser);
-            if ($id_responsible == "") {
-                array_push($errors, "Nombre de usuario incorrecto ");
-                $correct = false;
-            }
         }
 
         if ($correct) {
             $idTournmt = generarIdTorneo($conn);
-            crearTorneo($conn, $idTournmt, $name, $datetime, $idgame,$id_responsible);
+            crearTorneo($conn, $idTournmt, $name, $datetime, $idgame);
         }
     }
 }

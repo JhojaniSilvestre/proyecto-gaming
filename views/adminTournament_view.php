@@ -132,7 +132,6 @@
                                                 <th>Nombre</th>
                                                 <th>Juego</th>
                                                 <th>Fecha</th>
-                                                <th>Responsable</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>

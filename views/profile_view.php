@@ -128,10 +128,10 @@
                                 <td><?php echo $fila[1]; ?></td>
                                 <td><?php echo $fila[2]; ?></td>
                                 <?php if ($fila[3] == 0) { ?>
-                                            <td>No</td>
-                                          <?php  } else { ?>
-                                            <td>Si</td>
-                                          <?php  } ?>
+                                  <td>No</td>
+                                <?php  } else { ?>
+                                  <td>Si</td>
+                                <?php  } ?>
                                 <td>
                                   <a href="profile_controller.php?id_booking=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
                                 </td>
@@ -179,10 +179,17 @@
                                     <?php if (empty($misTorneos) === false) { ?>
                                       <?php foreach ($misTorneos as $fila) : ?>
                                         <?php echo "<tr>"; ?>
-                                        <?php foreach ($fila as $celda) : ?>
-                                          <!--imprimo los datos columna de la fila en la celda"-->
-                                          <?php echo "<td>" . $celda . "</td>"; ?>
-                                        <?php endforeach; ?>
+                                        <td><?php echo $fila[0]; ?></td>
+                                        <td><?php echo $fila[1]; ?></td>
+                                        <td><?php echo $fila[2]; ?></td>
+                                        <td><?php echo $fila[3]; ?></td>
+                                        <td><?php echo $fila[4]; ?></td>
+                                        <?php if ($fila[5] == 0) { ?>
+                                          <td>No</td>
+                                        <?php  } else { ?>
+                                          <td>Si</td>
+                                        <?php  } ?>
+
                                         <td>
                                           <a href="profile_controller.php?id_tournament=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
                                         </td>
