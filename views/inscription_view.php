@@ -70,13 +70,11 @@
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                             <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                                             <input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
-                                            <input type="hidden" id="userName" name="userName" value="<?php echo $userName; ?>">
                                             <input type="hidden" id="gameName" name="gameName" value="<?php echo $gameName; ?>">
                                             <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
                                             <input type="hidden" id="id_user" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
                                             <h4>Nombre del torneo <?php echo $name ; ?> </h4>
                                             <h3>Fecha <?php echo $date ; ?> </h3>
-                                            <h3>Responsable <?php echo $userName ; ?> </h3>
                                             <h3>Juego <?php echo $gameName ; ?> </h3>
 
                                                 <button name="disponibilidad" type="submit" class="">Sitios disponibles para este torneo</button>

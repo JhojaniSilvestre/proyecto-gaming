@@ -24,7 +24,7 @@ function obtenerMisReservas($conn,$id_user)
 function obtenerMisTorneos($conn,$id_user)
 {
     try {
-        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username, participants.id_seat,participants.id_user,responsible 
+        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username, participants.id_seat,responsible 
         FROM tournaments,games,users,participants WHERE tournaments.id_game = games.id_game AND tournaments.id_tournament = participants.id_tournament
         AND participants.id_user = users.id_user AND participants.id_user=$id_user AND tournaments.active = 1; ");
         $stmt->execute();
