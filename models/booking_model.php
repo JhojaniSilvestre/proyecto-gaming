@@ -41,7 +41,7 @@ function comprobarEmail($conn, $emailUser)
 function reservaNoRepetida($conn,$date,$idUser){
     try {
         $stmt = $conn->prepare("SELECT booking.id_user FROM seats,booking where 
-        date = '$date' AND booking.id_user=$idUser");
+        date = '$date' AND booking.id_user=$idUser AND active = 1");
         $stmt->execute(); //ejecuta la select
         $correcto=true;
         if ($stmt->rowCount() > 0) {

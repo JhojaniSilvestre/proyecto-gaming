@@ -92,125 +92,133 @@
         </div>
 
         <div class="container">
-        <div class="row">
+          <div class="row">
             <div class="col-lg-12">
-                <div class="page-content">
+              <div class="page-content">
 
-                    <!-- ** Tournament form Start ** -->
-                    <ul>
-                      <li><a href="#misReservas">Mis Reservas</a></li>
-                      <li><a href="#misTorneos">Mis Torneos</a></li>
-                    </ul>
-                    <div class="tournament-area" id="misReservas">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="heading-section text-center text">
-                                    <h4><em>Mis</em> Reservas</h4>
-                                </div>
-                                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- ** Tournament form Start ** -->
+                <ul>
+                  <li><a href="#misReservas">Mis Reservas</a></li>
+                  <li><a href="#misTorneos">Mis Torneos</a></li>
+                </ul>
+                <div class="tournament-area" id="misReservas">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="heading-section text-center text">
+                        <h4><em>Mis</em> Reservas</h4>
+                      </div>
+                      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID Reserva</th>
-                                                <th>Fecha</th>
-                                                <th>Sitio</th>
-                                                <th>ID Usuario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Imprimo datos tabla-->
-                                            <?php if (empty($misReservas) === false) { ?>
-                                                <?php foreach ($misReservas as $fila) : ?>
-                                                    <?php echo "<tr>"; ?>
-                                                    <?php foreach ($fila as $celda) : ?>
-                                                        <!--imprimo los datos columna de la fila en la celda"-->
-                                                        <?php echo "<td>" . $celda . "</td>"; ?>
-                                                    <?php endforeach; ?>
-                                                    <td>
-                                                        <a href="inscription_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Modificar</a>
-                                                    </td>
-                                                    <?php echo "</tr>"; ?>
-                                                <?php endforeach; ?>
-                                            <?php } ?>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>ID Reserva</th>
+                              <th>Fecha</th>
+                              <th>Sitio</th>
+                              <th>Responsable</th>
+                              <th>Acción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Imprimo datos tabla-->
+                            <?php if (empty($misReservas) === false) { ?>
+                              <?php foreach ($misReservas as $fila) : ?>
+                                <?php echo "<tr>"; ?>
+                                <td><?php echo $fila[0]; ?></td>
+                                <td><?php echo $fila[1]; ?></td>
+                                <td><?php echo $fila[2]; ?></td>
+                                <?php if ($fila[3] == 0) { ?>
+                                            <td>No</td>
+                                          <?php  } else { ?>
+                                            <td>Si</td>
+                                          <?php  } ?>
+                                <td>
+                                  <a href="profile_controller.php?id_booking=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                </td>
+                                <?php echo "</tr>"; ?>
+                              <?php endforeach; ?>
+                            <?php } ?>
 
-                                            <!-- fin datos -->
-                                        </tbody>
-                                    </table>
-                            </div>
-                        </div>
+                            <!-- fin datos -->
+                          </tbody>
+                        </table>
                     </div>
-                    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="page-content">
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="page-content">
 
-                    <!-- ** Tournament form Start ** -->
+                        <!-- ** Tournament form Start ** -->
 
-                    <div class="tournament-area" id="misTorneos">
-                        <div class="row">
+                        <div class="tournament-area" id="misTorneos">
+                          <div class="row">
                             <div class="col-lg-12">
-                                <div class="heading-section text-center">
-                                    <h4><em>Mis</em> Torneos</h4>
-                                </div>
-                                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                              <div class="heading-section text-center">
+                                <h4><em>Mis</em> Torneos</h4>
+                              </div>
+                              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID Torneo</th>
-                                                <th>Torneo</th>
-                                                <th>Juego</th>
-                                                <th>Fecha</th>
-                                                <th>Sitio</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Imprimo datos tabla-->
-                                            <?php if (empty($misTorneos) === false) { ?>
-                                                <?php foreach ($misTorneos as $fila) : ?>
-                                                    <?php echo "<tr>"; ?>
-                                                    <?php foreach ($fila as $celda) : ?>
-                                                        <!--imprimo los datos columna de la fila en la celda"-->
-                                                        <?php echo "<td>" . $celda . "</td>"; ?>
-                                                    <?php endforeach; ?>
-                                                    <td>
-                                                        <a href="inscription_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Modificar</a>
-                                                    </td>
-                                                    <?php echo "</tr>"; ?>
-                                                <?php endforeach; ?>
-                                            <?php } ?>
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>ID Torneo</th>
+                                      <th>Torneo</th>
+                                      <th>Juego</th>
+                                      <th>Fecha</th>
+                                      <th>Sitio</th>
+                                      <th>Responsable</th>
+                                      <th>Acción</th>
 
-                                            <!-- fin datos -->
-                                        </tbody>
-                                    </table>
+
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <!-- Imprimo datos tabla-->
+                                    <?php if (empty($misTorneos) === false) { ?>
+                                      <?php foreach ($misTorneos as $fila) : ?>
+                                        <?php echo "<tr>"; ?>
+                                        <?php foreach ($fila as $celda) : ?>
+                                          <!--imprimo los datos columna de la fila en la celda"-->
+                                          <?php echo "<td>" . $celda . "</td>"; ?>
+                                        <?php endforeach; ?>
+                                        <td>
+                                          <a href="profile_controller.php?id_tournament=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                        </td>
+                                        <?php echo "</tr>"; ?>
+                                      <?php endforeach; ?>
+                                    <?php } ?>
+
+                                    <!-- fin datos -->
+                                  </tbody>
+                                </table>
                             </div>
+                          </div>
                         </div>
-                    </div>
 
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
+                        <footer>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
 
-                  <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
+                                  <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
 
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+                        <!-- Scripts -->
+                        <!-- Bootstrap core JavaScript -->
+                        <script src="../js/jquery.min.js"></script>
+                        <script src="../js/bootstrap.min.js"></script>
 
-  <script src="../js/isotope.min.js"></script>
-  <script src="../js/owl-carousel.js"></script>
-  <script src="../js/custom.js"></script>
+                        <script src="../js/isotope.min.js"></script>
+                        <script src="../js/owl-carousel.js"></script>
+                        <script src="../js/custom.js"></script>
 
 
 </body>

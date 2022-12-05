@@ -52,6 +52,13 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                 array_push($errors, "Debe elegir un puesto disponible.");
                 $correct = false;
             }
+
+            $resultado = inscripcionNoRepetida($conn,$date,$id_user);
+			if ($resultado == false) {
+				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
+				$correct = false;
+			}
+
             if($correct){
                 inscribirseTorneo($conn,$id,$_POST["seat"],$id_user);
                 //header("location: userTournament_controller.php");
@@ -68,5 +75,3 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 cerrarConexion($conn);
 require_once("../views/inscription_view.php");
-
-?>
