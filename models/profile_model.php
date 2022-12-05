@@ -109,3 +109,5 @@ function updateResponsable($conn,$id_booking){
         echo "No se ha podido cancelar la reserva", $e-> getMessage();
     }
 }
+
+?>
