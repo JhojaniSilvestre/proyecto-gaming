@@ -206,5 +206,23 @@ function inscribirseTorneo($conn,$idTournmt,$id_seat,$id_user){
 	}
 }
 
+function inscripcionNoRepetida($conn,$date,$idUser){
+    try {
+        $stmt = $conn->prepare("SELECT participants.id_user FROM participants,tournaments where 
+        participants.id_tournament=tournaments.id_tournament And date = '$date' AND participants.id_user=$idUser");
+        $stmt->execute(); //ejecuta la select
+        $correcto=true;
+        if ($stmt->rowCount() > 0) {
+            $correcto= false;
+        }
+        return $correcto;
+        
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+} 
+
+
 
 ?>

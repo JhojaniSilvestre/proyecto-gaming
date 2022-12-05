@@ -94,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 				$correct = false;
 			}
 
-			/*$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
+			$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
 			if ($resultado == false) {
 				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
 				$correct = false;
-			}*/
+			}
 		}
 
 		if ($correct) {
