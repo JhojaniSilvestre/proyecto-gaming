@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilo customizado-->
-    <link href="../css/dashboard.css" rel="stylesheet"> 
+    <link href="../css/dashboard.css" rel="stylesheet">
 
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -52,7 +52,7 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -61,7 +61,7 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -122,46 +122,104 @@
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3 me-4">Usuarios</h1>
+                    <h1 class="text-white fw-bold h3 me-4">Reservas de puestos</h1>
                 </div>
 
                 <div class="row">
                     <div class="col-10 mx-auto">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Historial usuarios</h4>
+                                <h4 class="card-title">Historial Reservas</h4>
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Id reserva</th>
+                                                <th>Fecha</th>
+                                                <th>Puesto</th>
                                                 <th>Usuario</th>
-                                                <th>Email</th>
-                                                <th>Contraseña</th>
-                                                <th>Turno</th>
+                                                <th>Responsable</th>
                                                 <th>Activo</th>
-                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Compruebo que existen torneos-->
-                                            <?php if(empty($users) === false){ ?>
+                                            <?php if (empty($booking) === false) { ?>
                                                 <!-- recorro las filas del array-->
-                                                <?php foreach($users as $fila) : ?>
+                                                <?php foreach ($booking as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
-                                                        <!-- recorro los datos de cada fila-->
-                                                        <?php foreach($fila as $celda) : ?>
-                                                            <!--imprimo cada dato-->
-                                                            <?php echo "<td>".$celda."</td>"; ?>
-                                                        <?php endforeach;?>
-                                                        <!--paso id del torneo en el enlace-->
-                                                        <td>
-                                                            <a href="#" 
-                                                            class="btn btn-outline-success me-3">Activar</a>
-                                                            <a href="#" 
-                                                            class="btn btn-outline-danger">Desactivar</a>
-                                                        </td>
+                                                    <!-- recorro los datos de cada fila-->
+                                                    <td><?php echo $fila[0]; ?></td>
+                                                    <td><?php echo $fila[1]; ?></td>
+                                                    <td><?php echo $fila[2]; ?></td>
+                                                    <td><?php echo $fila[3]; ?></td>
+                                                    <?php if ($fila[4] == 0) { ?>
+                                                        <td>No</td>
+                                                    <?php  } else { ?>
+                                                        <td>Si</td>
+                                                    <?php  } ?>
+                                                    <?php if ($fila[5] == 0) { ?>
+                                                        <td>No</td>
+                                                    <?php  } else { ?>
+                                                        <td>Si</td>
+                                                    <?php  } ?>
+                                                    <!--paso id del torneo en el enlace-->
+                                                    <?php echo "</tr>"; ?>
+                                                <?php endforeach; ?>
+                                            <?php } ?>
+                                            <!-- fin datos -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-10 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Historial de participantes en torneos</h4>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Id participante</th>
+                                                <th>Usuario</th>
+                                                <th>Puesto</th>
+                                                <th>Fecha</th>
+                                                <th>Nombre torneo</th>
+                                                <th>Nombre juego</th>
+                                                <th>Responsable</th>
+                                                <th>Activo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Compruebo que existen torneos-->
+                                            <?php if (empty($participants) === false) { ?>
+                                                <!-- recorro las filas del array-->
+                                                <?php foreach ($participants as $fila) : ?>
+                                                    <?php echo "<tr>"; ?>
+                                                    <!-- recorro los datos de cada fila-->
+                                                    <td><?php echo $fila[0]; ?></td>
+                                                    <td><?php echo $fila[1]; ?></td>
+                                                    <td><?php echo $fila[2]; ?></td>
+                                                    <td><?php echo $fila[3]; ?></td>
+                                                    <td><?php echo $fila[4]; ?></td>
+                                                    <td><?php echo $fila[5]; ?></td>
+                                                    <?php if ($fila[6] == 0) { ?>
+                                                        <td>No</td>
+                                                    <?php  } else { ?>
+                                                        <td>Si</td>
+                                                    <?php  } ?>
+                                                    <?php if ($fila[7] == 0) { ?>
+                                                        <td>No</td>
+                                                    <?php  } else { ?>
+                                                        <td>Si</td>
+                                                    <?php  } ?>
+                                                    <!--paso id del torneo en el enlace-->
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>

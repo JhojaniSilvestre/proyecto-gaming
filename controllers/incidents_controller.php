@@ -26,9 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			$fecha = limpiar($_POST["fecha"]);
 			$description = limpiar($_POST["description"]);
 			$id_user = $_SESSION["id_user"];
-
-			$existe = comprobarResponsable($conn, $id_user, $fecha);
+            
+			$existe = comprobarResponsableReservas($conn, $id_user, $fecha);
 			if ($existe === false) {
+				array_push($errors, "No puede registrar incidencias si no es el responsable de la fecha seleccionada");
+				$correct = false;
+			}
+
+			$existe2 = comprobarResponsableTorneo($conn, $id_user, $fecha);
+			var_dump($existe2);
+			if ($existe2 === false) {
 				array_push($errors, "No puede registrar incidencias si no es el responsable de la fecha seleccionada");
 				$correct = false;
 			}
