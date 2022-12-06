@@ -71,11 +71,12 @@
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                                 <div class="mt-3 mb-4">
                                                     <input type="text" name="title" id="title" placeholder="Nombre incidencia">
-                                                    <div>
-                                                        <input type="date" name="fecha" id="fecha" placeholder="Fecha del incidente">
+                                                    <div class="mt-3">
+                                                        <label class="mb-2">Fecha del incidente </label>
+                                                        <input type="date" name="fecha" id="fecha">                               
                                                     </div>
                                                 </div>
-                                                <label class="mb-2">Descripción: </label>
+                                                <label class="mb-2">Descripción </label>
                                                 <textarea name="description" rows="4" cols="55"></textarea>
                                                 <!-- fin  -->
                                                 <div class="form-button mt-3 d-flex justify-content-center">

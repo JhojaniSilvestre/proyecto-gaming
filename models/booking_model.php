@@ -77,3 +77,44 @@ function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
 	}
 }
 
+function obtenerReservas($conn){
+    try {
+        $stmt = $conn->prepare("SELECT id_booking, date,id_seat, username, responsible, booking.active 
+        FROM booking,users WHERE booking.id_user = users.id_user; ");
+        $stmt->execute();
+        $booking = array();
+        
+        if($stmt->rowCount() > 0){
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            foreach($stmt->fetchAll() as $row) {
+                $booking[] =array($row["id_booking"],$row["date"],$row["id_seat"],$row["username"],$row["responsible"],$row["active"]); 
+            }
+        }
+        return $booking;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function obtenerParticipantes($conn){
+    try {
+        $stmt = $conn->prepare("SELECT id_participant,username,id_seat,tournaments.date, tournaments.name,games.name,responsible, participants.active
+         FROM participants,users,tournaments,games WHERE users.id_user = participants.id_user AND participants.id_tournament = tournaments.id_tournament
+         AND games.id_game = tournaments.id_game; ");
+        $stmt->execute();
+        $participants = array();
+        
+        if($stmt->rowCount() > 0){
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            foreach($stmt->fetchAll() as $row) {
+                $participants[] =array($row["id_participant"],$row["username"],$row["id_seat"],$row["date"],$row["name"],$row["name"],$row["responsible"],$row["active"]); 
+            }
+        }
+        return $participants;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
