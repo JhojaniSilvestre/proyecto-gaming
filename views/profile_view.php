@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="../css/web_style.css">
 
-
+  <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
               <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
               <li><a href="../controllers/incidents_controller.php">Incidencias</a></li>
               <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
-              <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
+              <li><a href="../index.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -108,7 +108,6 @@
                         <h4><em>Mis</em> Reservas</h4>
                       </div>
                       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
                         <table class="table">
                           <thead>
                             <tr>
@@ -133,7 +132,7 @@
                                   <td>Si</td>
                                 <?php  } ?>
                                 <td>
-                                  <a href="profile_controller.php?id_booking=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                  <a type="submit" class="btn btn-outline-success me-3" onclick="cancelarBookingOK(<?php echo $fila[0]; ?>)">Cancelar</a>
                                 </td>
                                 <?php echo "</tr>"; ?>
                               <?php endforeach; ?>
@@ -149,7 +148,6 @@
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="page-content">
-
                         <!-- ** Tournament form Start ** -->
 
                         <div class="tournament-area" id="misTorneos">
@@ -191,7 +189,7 @@
                                         <?php  } ?>
 
                                         <td>
-                                          <a href="profile_controller.php?id_tournament=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                          <a type="submit" class="btn btn-outline-success me-3" onclick="cancelarTournOK(<?php echo $fila[0]; ?>)">Cancelar</a>
                                         </td>
                                         <?php echo "</tr>"; ?>
                                       <?php endforeach; ?>

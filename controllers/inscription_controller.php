@@ -58,7 +58,8 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
             if($correct){
                 inscribirseTorneo($conn,$id,$_POST["seat"],$id_user,$date);
-                header("location: userTournament_controller.php");
+                $mensajeOk="<h5 class='text-success text-center'>Inscripción realizada con exito!</h5>";
+                
             }
             
             

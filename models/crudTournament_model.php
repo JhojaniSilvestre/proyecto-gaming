@@ -177,7 +177,7 @@ function disponibilidadPuestosTorneo($conn, $datetime)
     try {
         $stmt = $conn->prepare("SELECT id_seat FROM seats 
         WHERE seats.id_seat NOT IN (SELECT participants.id_seat FROM participants,tournaments 
-        WHERE participants.id_tournament=tournaments.id_tournament AND date = '$datetime')");
+        WHERE participants.id_tournament=tournaments.id_tournament AND date = '$datetime' AND participants.active = 1)");
         $stmt->execute(); //ejecuta la select
 
         $seats = array();
@@ -217,7 +217,7 @@ function inscribirseTorneo($conn,$id_tournament,$id_seat,$id_user,$date){
 function inscripcionNoRepetida($conn,$date,$idUser){
     try {
         $stmt = $conn->prepare("SELECT participants.id_user FROM participants,tournaments where 
-        participants.id_tournament=tournaments.id_tournament And date = '$date' AND participants.id_user=$idUser");
+        participants.id_tournament=tournaments.id_tournament And date = '$date' AND participants.id_user=$idUser AND participants.active = 1");
         $stmt->execute(); //ejecuta la select
         $correcto=true;
         if ($stmt->rowCount() > 0) {

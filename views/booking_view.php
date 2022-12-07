@@ -40,7 +40,7 @@
                             <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
                             <li><a href="incidents_controller.php">Incidencias</a></li>
                             <li><a href="profile_controller.php">Mi cuenta</a></li>
-                            <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
+                            <li><a href="../index.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
-
+                    <?php if(isset($mensajeOk)){ echo $mensajeOk; } ?>
                     <!-- ***** Booking form Start ***** -->
                     <div class="booking-area">
                         <div class="row">

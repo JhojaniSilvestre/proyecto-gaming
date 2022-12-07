@@ -151,15 +151,21 @@
                                                 <?php foreach($users as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                         <!-- recorro los datos de cada fila-->
-                                                        <?php foreach($fila as $celda) : ?>
-                                                            <!--imprimo cada dato-->
-                                                            <?php echo "<td>".$celda."</td>"; ?>
-                                                        <?php endforeach;?>
+                                                        <td><?php echo $fila[0]; ?></td>
+                                                        <td><?php echo $fila[1]; ?></td>
+                                                        <td><?php echo $fila[2]; ?></td>
+                                                        <td><?php echo $fila[3]; ?></td>
+                                                        <td><?php echo $fila[4]; ?></td>
+                                                        <?php if ($fila[5] == 0) { ?>
+                                                        <td>No</td>
+                                                        <?php  } else { ?>
+                                                        <td>Si</td>
+                                                        <?php  } ?>
                                                         <!--paso id del torneo en el enlace-->
                                                         <td>
-                                                            <a href="#" 
+                                                            <a href="adminUsers_controller.php?idAct=<?php echo $fila[0]; ?>" 
                                                             class="btn btn-outline-success me-3">Activar</a>
-                                                            <a href="#" 
+                                                            <a href="adminUsers_controller.php?idDesc=<?php echo $fila[0]; ?>"  
                                                             class="btn btn-outline-danger">Desactivar</a>
                                                         </td>
                                                     <?php echo "</tr>"; ?>

@@ -20,4 +20,24 @@ function obtenerUsuarios($conn){
     }
 }
 
+function activarUser($conn,$idAct){
+    try {
+        $update = "UPDATE users SET active = 1 WHERE id_user = $idAct";
+        $conn->exec($update);
+
+    }catch(PDOException $e){
+        echo "No se ha podido activar.", $e-> getMessage();
+    }
+}
+
+function desactivarUser($conn,$idDesc){
+    try {
+        $update = "UPDATE users SET active = 0 WHERE id_user = $idDesc";
+        $conn->exec($update);
+
+    }catch(PDOException $e){
+        echo "No se ha podido desactivar.", $e-> getMessage();
+    }
+}
+
 ?>

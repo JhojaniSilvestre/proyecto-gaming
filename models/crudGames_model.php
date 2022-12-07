@@ -29,6 +29,45 @@ function añadirJuegos($conn,$name) {
      } catch (PDOException $ex) {
          echo $ex->getMessage();
      }
- }
+}
+
+function obtenerJuegoEspecifico($conn, $id){
+    try {
+        $stmt = $conn->prepare("SELECT name FROM games WHERE id_game = $id");
+        $stmt->execute();
+
+        return $stmt;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function nombreJuegoDisponible($conn,$name){
+    try {
+        $stmt = $conn->prepare("SELECT name FROM games WHERE name = '$name'");
+        $stmt->execute();
+        $disponible = true;
+        //compruebo si la select tiene resultados
+        if ($stmt->rowCount() > 0) {
+            $disponible = false;
+        }
+        return $disponible;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function updateJuego($conn,$id,$name){
+    try {
+        $update = "UPDATE games SET name = '$name' WHERE id_game = $id";
+        $conn->exec($update);
+
+    }catch(PDOException $e){
+        echo "No se ha podido actualizar el registro", $e-> getMessage();
+    }
+}
+
 
 ?>

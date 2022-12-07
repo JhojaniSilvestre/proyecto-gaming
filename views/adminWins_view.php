@@ -175,7 +175,7 @@
                                             <th>Nombre Torneo</th>
                                             <th>Nombre Juego</th>
                                             <th>Fecha</th>
-                                            <th>Ganador</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -191,8 +191,7 @@
                                                 <?php endforeach; ?>
                                                 <!--paso id del torneo en el enlace-->
                                                 <td>
-                                                    <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Editar</a>
-                                                    <a href="#" class="btn btn-outline-danger">Eliminar</a>
+                                                    <a href="./crud_wins/editWin_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Editar</a>
                                                 </td>
                                                 <?php echo "</tr>"; ?>
                                             <?php endforeach; ?>

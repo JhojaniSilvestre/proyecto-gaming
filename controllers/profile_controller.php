@@ -18,7 +18,7 @@
 	$misTorneos=obtenerMisTorneos($conn,$id_user);
 
 	if (isset($_GET['id_tournament']) && $_GET['id_tournament'] != "") {
-var_dump($_GET['id_tournament']);
+
         //obtener datos del torneo seleccionado
         $id_tournament = $_GET['id_tournament']; //obtengo el id pasado por la url del enlace
         updateTorneo($conn,$id_tournament,$id_user);
@@ -38,9 +38,7 @@ var_dump($_GET['id_tournament']);
 		if($resultado === true){
 			asignarNuevoResponsable($conn,$id_booking);
 		}
-
-
-
+		
 		header("location: profile_controller.php");
        
     }

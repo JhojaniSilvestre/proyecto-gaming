@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/register_style.css">
 
-  <script src="../js/registerOK.js" type="text/javascript"> </script>
+  <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
   <title>Formulario Registro</title>
 </head>
 

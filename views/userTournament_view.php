@@ -102,11 +102,6 @@
                                     </table>
                             </div>
                         </div>
-                        <a href="../controllers/booking_controller.php">
-                            <div class="form-button mt-3 d-flex justify-content-center">
-                                <button id="submit" type="submit" class="btn-form">Inscibete YA</button>
-                            </div>
-                        </a>
                     </div>
 
                 </div>
@@ -150,11 +145,6 @@
                                                 </table>
                                         </div>
                                     </div>
-                                    <a href="../controllers/booking_controller.php">
-                                        <div class="form-button mt-3 d-flex justify-content-center">
-                                            <button id="submit" type="submit" class="btn-form">Inscibete YA</button>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
                             </main>
