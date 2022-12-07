@@ -66,7 +66,24 @@ function obtenerIdParticipante($conn,$user,$tournament,$datetime){
     }
 }
 
-function idParticipanteExiste($conn,$id,$id_participant){
+function idParticipanteExiste($conn,$id_participant){
+    try {
+        $stmt = $conn->prepare("SELECT id_participant FROM wins WHERE id_participant = $id_participant");
+        $stmt->execute();
+        $respuesta = false;
+        //compruebo si la select tiene resultados
+        if ($stmt->rowCount() > 0) {
+            $respuesta = true;
+        }
+        
+        return $respuesta;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function editWinParticipantExiste($conn,$id,$id_participant){
     try {
         $stmt = $conn->prepare("SELECT id_participant FROM wins WHERE id_participant = $id_participant AND id_win != $id");
         $stmt->execute();

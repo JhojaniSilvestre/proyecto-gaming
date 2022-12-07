@@ -62,7 +62,7 @@
                         array_push($errors,"El usuario no es un participante del torneo seleccionado.");
                         $correct = false;
                     }else{
-                        $respuesta = idParticipanteExiste($conn,$id,$id_participant);
+                        $respuesta = editWinParticipantExiste($conn,$id,$id_participant);
 
                         if ($respuesta === true) {
                             array_push($errors,"La victoria del participante en el torneo seleccionado ya existe.");
