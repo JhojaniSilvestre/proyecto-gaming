@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
-
+                <?php if(isset($mensajeOk)){ echo $mensajeOk; } ?>
                     <!-- ***** Booking form Start ***** -->
                     <div class="booking-area">
                         <div class="row">
@@ -65,19 +65,29 @@
                                     <h4><em>Reserva</em> Tu Puesto <em>para el torneo</em></h4>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-6 col-sm-10">
-                                        <div class="item-content">
+                                    <div class="col-lg-7 col-sm-10">
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                             <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                                             <input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
                                             <input type="hidden" id="gameName" name="gameName" value="<?php echo $gameName; ?>">
                                             <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
                                             <input type="hidden" id="id_user" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
-                                            <h4>Nombre del torneo <?php echo $name ; ?> </h4>
-                                            <h3>Fecha <?php echo $date ; ?> </h3>
-                                            <h3>Juego <?php echo $gameName ; ?> </h3>
 
-                                                <button name="disponibilidad" type="submit" class="">Sitios disponibles para este torneo</button>
+                                            <div class="main-profile ">
+                                                <div class="row">
+                                                <div class="col-lg-12 align-self-center">
+                                                    <ul>
+                                                    <li>Nombre del torneo<span><?php echo $name; ?></span></li>
+                                                    <li>Fecha <span><?php echo $date ?></span></li>
+                                                    <li>Juego<span><?php echo $gameName; ?></span></li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center div-btn">
+                                                <button name="disponibilidad" type="submit" class="btn-disponible">Sitios disponibles para este torneo</button>
+                                            </div>
+
                                                 <!-- Imprimo puestos disponibles-->
                                                 <?php if (empty($puestos) === false) { ?>
                                                     <div class="col-md-12">
@@ -91,6 +101,7 @@
                                                 <?php } ?>
                                                 <!-- fin  -->
                                                 <div class="form-button mt-3 d-flex justify-content-center">
+                                                    <a class="btn btn-primary rounded-pill me-3 px-3 py-3" href="userTournament_controller.php">Volver</a>
                                                     <button name="submit" type="submit" class="btn-form">Reservar</button>
                                                 </div>
                                                 <!-- Imprimo msj error-->
@@ -103,7 +114,6 @@
                                                 <?php } ?>
                                                 <!-- fin msj error -->
                                             </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

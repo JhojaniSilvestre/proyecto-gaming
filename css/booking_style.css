@@ -39,3 +39,8 @@ label{
     border: 0 none;
     letter-spacing: 0.5px;
 }
+
+.description{
+    width: 30%;
+    background-color: unset;
+}

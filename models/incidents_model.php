@@ -18,7 +18,7 @@
 
     function comprobarResponsableReservas($conn,$id_user,$date){
         try {
-            $stmt = $conn->prepare("SELECT * FROM booking WHERE DATE(date) = '$date' AND responsible=$id_user AND active = 1");
+            $stmt = $conn->prepare("SELECT * FROM booking WHERE DATE(date) = '$date' AND id_user = $id_user AND responsible= 1 AND active = 1");
             $stmt->execute();
             $correct=false;
             //compruebo si la select tiene resultados
@@ -36,7 +36,7 @@
     function comprobarResponsableTorneo($conn,$id_user,$date){
         try {
             $stmt = $conn->prepare("SELECT * FROM tournaments,participants
-             WHERE tournaments.id_tournament=participants.id_tournament AND DATE(date) = '$date' AND responsible=$id_user
+             WHERE tournaments.id_tournament=participants.id_tournament AND DATE(date) = '$date'  AND id_user = $id_user AND responsible = 1
              AND participants.active = 1 ");
             $stmt->execute();
             $correct=false;

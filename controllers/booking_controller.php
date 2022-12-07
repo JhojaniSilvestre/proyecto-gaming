@@ -103,7 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 		if ($correct) {
 			reservaPuesto($conn, $datetime, $seat, $idUsuario, $idComp);
-			
+			$mensajeOk="<h5 class='text-success text-center'>Reserva realizada con exito!</h5>";
+
 		}
 	}
 

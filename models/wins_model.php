@@ -28,7 +28,7 @@ function obtenerRankingWins($conn){
     try {
         $stmt = $conn->prepare("SELECT username, SUM(number) as total FROM wins, participants, users 
                                 WHERE wins.id_participant = participants.id_participant 
-                                AND participants.id_user = users.id_user GROUP BY username ORDER BY total DESC");
+                                AND participants.id_user = users.id_user GROUP BY username ORDER BY total DESC LIMIT 10");
         $stmt->execute();
         $ranking = array();
         
