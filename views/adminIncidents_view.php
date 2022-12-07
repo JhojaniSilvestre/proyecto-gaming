@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilo customizado-->
-    <link href="../css/dashboard.css" rel="stylesheet"> 
+    <link href="../css/dashboard.css" rel="stylesheet">
 
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -52,7 +52,7 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminUsers_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -97,7 +97,7 @@
                                 Reservas
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="./adminIncidents_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -136,32 +136,28 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Usuario</th>
-                                                <th>Email</th>
-                                                <th>Contraseña</th>
-                                                <th>Turno</th>
-                                                <th>Activo</th>
+                                                <th>Titulo</th>
+                                                <th>Descripción</th>
+                                                <th>Fecha incidencia</th>
+                                                <th>Fecha creación</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Compruebo que existen torneos-->
-                                            <?php if(empty($users) === false){ ?>
+                                            <?php if (empty($incidents) === false) { ?>
                                                 <!-- recorro las filas del array-->
-                                                <?php foreach($users as $fila) : ?>
+                                                <?php foreach ($incidents as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
-                                                        <!-- recorro los datos de cada fila-->
-                                                        <?php foreach($fila as $celda) : ?>
-                                                            <!--imprimo cada dato-->
-                                                            <?php echo "<td>".$celda."</td>"; ?>
-                                                        <?php endforeach;?>
-                                                        <!--paso id del torneo en el enlace-->
-                                                        <td>
-                                                            <a href="#" 
-                                                            class="btn btn-outline-success me-3">Activar</a>
-                                                            <a href="#" 
-                                                            class="btn btn-outline-danger">Desactivar</a>
-                                                        </td>
+                                                    <!-- recorro los datos de cada fila-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <!--paso id del torneo en el enlace-->
+                                                    <td>
+                                                        <a href="adminEditIncident_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Editar</a>
+                                                    </td>
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>

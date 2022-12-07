@@ -17,7 +17,6 @@
             $resultado = $respuesta->fetch(PDO::FETCH_ASSOC);
             //guardo los registros en variables, estas se imprimiran en los input como valores por defecto
             $name = $resultado["nametourn"];
-            $userName = $resultado["username"];
 			$idgame =  $resultado["idgame"];
             //separo la fecha y la hora
             $explode = explode(" ", $resultado["date"]);
@@ -37,7 +36,7 @@
                 $errors = array();
                 $correct = true;
 
-                if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "" || $_POST["nombreUser"] == "") {
+                if ($_POST["nombre"] == "" || $_POST["fecha"] == "" || $_POST["juego"] == "" || $_POST["turno"] == "") {
                     array_push($errors,"No puede dejar campos en blanco o sin seleccionar.");
                     $correct = false;
                 }
@@ -47,7 +46,6 @@
                     $date = limpiar($_POST["fecha"]);
                     $idgame = limpiar($_POST["juego"]);
                     $shift = limpiar($_POST["turno"]);
-                    $userName = limpiar($_POST["nombreUser"]);
 
                     //fecha formato datetime según la hora elegida
                     if ($shift == "m")
@@ -65,15 +63,10 @@
                         $correct = false;
                     }
 
-                    $id_responsible = obtenerIdResponsable($conn, $userName);
-                    if ($id_responsible == "") {
-                        array_push($errors, "Nombre de usuario incorrecto ");
-                        $correct = false;
-                    }
                 } 
 
                 if($correct){
-                    updateTorneo($conn,$id,$name,$datetime,$idgame,$id_responsible);
+                    updateTorneo($conn,$id,$name,$datetime,$idgame);
                     header("location: ../adminTournament_controller.php");
                 }
             } //fin if isset

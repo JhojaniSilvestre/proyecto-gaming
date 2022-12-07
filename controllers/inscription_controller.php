@@ -21,7 +21,6 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
         $resultado = $respuesta->fetch(PDO::FETCH_ASSOC);
         //guardo los registros en variables, estas se imprimiran en los input como valores por defecto
         $name = $resultado["nametourn"];
-        $userName = $resultado["username"];
         $gameName =  $resultado["name"];
         $date =  $resultado["date"];
     }
@@ -32,7 +31,6 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
             $id = $_POST["id"];
             $date = $_POST["date"];
             $name = $_POST["name"];
-            $userName = $_POST["userName"];
             $gameName =  $_POST["gameName"];
             $id_user = $_POST['id_user'];
             $puestos = disponibilidadPuestosTorneo($conn, $date);
@@ -43,7 +41,6 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
             $correct = true;
             $date = $_POST["date"];
             $name = $_POST["name"];
-            $userName = $_POST["userName"];
             $gameName =  $_POST["gameName"];
             $id = $_POST["id"];
             $id_user = $_POST['id_user'];
@@ -52,9 +49,16 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                 array_push($errors, "Debe elegir un puesto disponible.");
                 $correct = false;
             }
+
+            $resultado = inscripcionNoRepetida($conn,$date,$id_user);
+			if ($resultado == false) {
+				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
+				$correct = false;
+			}
+
             if($correct){
-                inscribirseTorneo($conn,$id,$_POST["seat"],$id_user);
-                //header("location: userTournament_controller.php");
+                inscribirseTorneo($conn,$id,$_POST["seat"],$id_user,$date);
+                header("location: userTournament_controller.php");
             }
             
             
@@ -68,5 +72,3 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 cerrarConexion($conn);
 require_once("../views/inscription_view.php");
-
-?>

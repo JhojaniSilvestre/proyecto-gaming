@@ -23,42 +23,43 @@
 
 <body>
 
-  <!-- ***** Header Area Start ***** -->
+  <!-- ** Header Area Start ** -->
   <header class="header-area header-sticky">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
+            <!-- ** Logo Start ** -->
             <a href="welcome_controller.php" class="logo">
               <img src="../img/gamin-room-logo-purple.png" alt="">
             </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
+            <!-- ** Logo End ** -->
+            <!-- ** Menu Start ** -->
             <ul class="nav">
               <li><a href="welcome_controller.php">Home</a></li>
               <li><a href="../controllers/booking_controller.php">Reservas</a></li>
               <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
+              <li><a href="../controllers/incidents_controller.php">Incidencias</a></li>
               <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
               <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
             </a>
-            <!-- ***** Menu End ***** -->
+            <!-- ** Menu End ** -->
           </nav>
         </div>
       </div>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
+  <!-- ** Header Area End ** -->
 
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="page-content">
 
-          <!-- ***** Banner Start ***** -->
+          <!-- ** Banner Start ** -->
           <div class="row">
             <div class="col-lg-12">
               <div class="main-profile ">
@@ -90,28 +91,141 @@
           </div>
         </div>
 
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-content">
 
-                  <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
+                <!-- ** Tournament form Start ** -->
+                <ul>
+                  <li><a href="#misReservas">Mis Reservas</a></li>
+                  <li><a href="#misTorneos">Mis Torneos</a></li>
+                </ul>
+                <div class="tournament-area" id="misReservas">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="heading-section text-center text">
+                        <h4><em>Mis</em> Reservas</h4>
+                      </div>
+                      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>ID Reserva</th>
+                              <th>Fecha</th>
+                              <th>Sitio</th>
+                              <th>Responsable</th>
+                              <th>Acción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Imprimo datos tabla-->
+                            <?php if (empty($misReservas) === false) { ?>
+                              <?php foreach ($misReservas as $fila) : ?>
+                                <?php echo "<tr>"; ?>
+                                <td><?php echo $fila[0]; ?></td>
+                                <td><?php echo $fila[1]; ?></td>
+                                <td><?php echo $fila[2]; ?></td>
+                                <?php if ($fila[3] == 0) { ?>
+                                  <td>No</td>
+                                <?php  } else { ?>
+                                  <td>Si</td>
+                                <?php  } ?>
+                                <td>
+                                  <a href="profile_controller.php?id_booking=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                </td>
+                                <?php echo "</tr>"; ?>
+                              <?php endforeach; ?>
+                            <?php } ?>
+
+                            <!-- fin datos -->
+                          </tbody>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="page-content">
+
+                        <!-- ** Tournament form Start ** -->
+
+                        <div class="tournament-area" id="misTorneos">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="heading-section text-center">
+                                <h4><em>Mis</em> Torneos</h4>
+                              </div>
+                              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>ID Torneo</th>
+                                      <th>Torneo</th>
+                                      <th>Juego</th>
+                                      <th>Fecha</th>
+                                      <th>Sitio</th>
+                                      <th>Responsable</th>
+                                      <th>Acción</th>
 
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <!-- Imprimo datos tabla-->
+                                    <?php if (empty($misTorneos) === false) { ?>
+                                      <?php foreach ($misTorneos as $fila) : ?>
+                                        <?php echo "<tr>"; ?>
+                                        <td><?php echo $fila[0]; ?></td>
+                                        <td><?php echo $fila[1]; ?></td>
+                                        <td><?php echo $fila[2]; ?></td>
+                                        <td><?php echo $fila[3]; ?></td>
+                                        <td><?php echo $fila[4]; ?></td>
+                                        <?php if ($fila[5] == 0) { ?>
+                                          <td>No</td>
+                                        <?php  } else { ?>
+                                          <td>Si</td>
+                                        <?php  } ?>
 
-  <script src="../js/isotope.min.js"></script>
-  <script src="../js/owl-carousel.js"></script>
-  <script src="../js/custom.js"></script>
+                                        <td>
+                                          <a href="profile_controller.php?id_tournament=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Cancelar</a>
+                                        </td>
+                                        <?php echo "</tr>"; ?>
+                                      <?php endforeach; ?>
+                                    <?php } ?>
+
+                                    <!-- fin datos -->
+                                  </tbody>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+
+                        <footer>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
+
+                                  <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
+
+
+                        <!-- Scripts -->
+                        <!-- Bootstrap core JavaScript -->
+                        <script src="../js/jquery.min.js"></script>
+                        <script src="../js/bootstrap.min.js"></script>
+
+                        <script src="../js/isotope.min.js"></script>
+                        <script src="../js/owl-carousel.js"></script>
+                        <script src="../js/custom.js"></script>
 
 
 </body>

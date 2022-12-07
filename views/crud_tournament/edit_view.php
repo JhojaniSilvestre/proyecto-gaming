@@ -98,6 +98,15 @@
                                 Victorias
                             </a>
                         </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="../adminIncidents_controller.php">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-circle-exclamation fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Incidencias
+                            </a>
+                        </li>
                         <hr class="bg-danger border-2 border-top mx-2">
                         <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="../../index.php">
@@ -156,9 +165,6 @@
                                     <input type="radio" class="btn-check" name="turno" id="t" value="t" autocomplete="off" checked>
                                     <label class="btn btn-sm btn-outline-secondary" for="t">17:45 - 18:15</label>
                                 <?php } ?>
-                                </div>
-                                <div>
-                                    <input type="text" name="nombreUser" id="nombreUser" value="<?php echo $userName; ?>">
                                 </div>
                                 <div class="text-center mb-2">
                                     <a href="../../controllers/adminTournament_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
