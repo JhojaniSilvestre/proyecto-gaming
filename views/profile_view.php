@@ -93,8 +93,7 @@
           <div class="row">
             <div class="col-lg-12">
               <!-- ** Tournament form Start ** -->
-              <ul>
-                <li><a href="#misReservas">Mis Reservas</a></li>
+              <ul class="enlace mt-3">
                 <li><a href="#misTorneos">Mis Torneos</a></li>
               </ul>
 
