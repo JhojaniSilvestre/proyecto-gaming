@@ -172,6 +172,24 @@ function updateResponsable($conn,$id_booking){
     }
 }
 
+function obtenerSumaUserWin($conn,$id_user){
+    try {
+        $stmt = $conn->prepare("SELECT SUM(number) as total FROM wins, participants, users 
+                                WHERE wins.id_participant = participants.id_participant 
+                                AND participants.id_user = users.id_user AND users.id_user = $id_user");
+        $stmt->execute();
+        $suma = 0;
+        
+        if ($stmt->rowCount() > 0) {
+            $suma = $stmt->fetchColumn();
+        }
+        return $suma;
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
 
 
 

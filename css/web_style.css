@@ -212,20 +212,7 @@ Header Style
 --------------------------------------------- 
 */
 
-.background-header {
-  background-color: #fff !important;
-  height: 70px!important;
-  position: fixed!important;
-  top: 0!important;
-  left: 0;
-  right: 0;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
-  -webkit-transition: all .5s ease 0s;
-  -moz-transition: all .5s ease 0s;
-  -o-transition: all .5s ease 0s;
-  transition: all .5s ease 0s;
-  display: none;
-}
+
 
 .header-area {
   background-color: transparent;
@@ -911,15 +898,15 @@ body {
   .top-downloaded ul li span {
     font-size: 14px;
   }
-  .top-streamers ul li .main-button {
+  .top-ranking ul li .main-button {
     float: none;
     margin-top: 10px;
   }
-  .top-streamers ul li .main-button a {
+  .top-ranking ul li .main-button a {
     width: 100%;
     text-align: center;
   }
-  .top-streamers,
+  .top-ranking,
   .top-downloaded {
     max-height: 100%;
     min-height: 100%;
@@ -1040,3 +1027,109 @@ body {
 .div-btn > .btn-disponible{
   background-color: #27292a;
 }
+
+/* iconos welcome top jugadores */
+.fa-stack .fa-circle{
+  font-size: 2.4em;
+  color: #27292a;
+}
+.fa-stack .fa-chess-queen{
+  font-size: 1.5em;
+  color: #7a51f4;
+}
+
+.featured-games {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px 30px 22px 30px;
+}
+
+.top-ranking {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+  max-height: 567px;
+  min-height: 567px;
+}
+
+.top-ranking ul li {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #353637;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.top-ranking ul li span {
+  float: left;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 700;
+  
+  margin-right: 10px;
+}
+
+.top-ranking ul li h6 i {
+  color: #fff;
+  background-color: #7a51f4;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 3px;
+}
+
+.top-ranking ul li h6 {
+  display: inline;
+  font-size: 14px;
+  color: #7a51f4;
+  font-weight: 400;
+}
+
+
+.wins {
+  color: white;
+  background-color: #27292a;
+  padding: 0px 25px 0px 25px;
+  border-radius: 23px;
+}
+
+/* boton torneos navegacion */
+
+.enlace li {
+  display: inline;
+}
+
+.enlace a {
+  font-size: 14px;
+  color: #fff;
+  background-color: #7a51f4;
+  margin-bottom: 3%;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.enlace li:last-child a {
+  margin-right: 0;
+}
+
+.enlace a:hover {
+  background-color: #fff;
+  color: #7a51f4;
+}
+
+
+
+
+
+

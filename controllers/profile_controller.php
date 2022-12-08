@@ -16,6 +16,7 @@
 
 	$misReservas= obtenerMisReservas($conn,$id_user);
 	$misTorneos=obtenerMisTorneos($conn,$id_user);
+	$winUser = obtenerSumaUserWin($conn,$id_user);
 
 	if (isset($_GET['id_tournament']) && $_GET['id_tournament'] != "") {
 

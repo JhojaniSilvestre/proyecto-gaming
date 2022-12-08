@@ -78,7 +78,7 @@
                                                 <th>Nombre</th>
                                                 <th>Juego</th>
                                                 <th>Fecha/Hora</th>
-                                                <th>Responsable</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -125,7 +125,7 @@
                                                             <th>Nombre</th>
                                                             <th>Juego</th>
                                                             <th>Fecha/Hora</th>
-                                                            <th>Responsable</th>
+                                                            <th>Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

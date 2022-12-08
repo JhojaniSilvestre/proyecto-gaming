@@ -27,11 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $idgame = limpiar($_POST["juego"]);
             $shift = limpiar($_POST["turno"]);
 
-            //fecha formato datetime según la hora elegida
-            if ($shift == "m")
-                $datetime = $date . " 11:15:00";
-            else
-                $datetime = $date . " 17:45:00";
+            $datetime = formatoDatetime($shift, $date);
 
             /* funcion para obtener la fecha actual */
             date_default_timezone_set('Europe/Madrid');

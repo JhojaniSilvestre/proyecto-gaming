@@ -28,14 +28,16 @@ function obtenerRankingWins($conn){
     try {
         $stmt = $conn->prepare("SELECT username, SUM(number) as total FROM wins, participants, users 
                                 WHERE wins.id_participant = participants.id_participant 
-                                AND participants.id_user = users.id_user GROUP BY username ORDER BY total DESC LIMIT 10");
+                                AND participants.id_user = users.id_user GROUP BY username ORDER BY total DESC LIMIT 5");
         $stmt->execute();
         $ranking = array();
         
         if($stmt->rowCount() > 0){
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $num = 0;
             foreach($stmt->fetchAll() as $row) {
-                $ranking[] =array($row["username"],$row["total"]); 
+                $num = $num + 1;
+                $ranking[$num] =array($row["username"],$row["total"]); 
             }
         }
         return $ranking;

@@ -27,12 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			$turn = limpiar($_POST["shift"]);
 			$emailUser = limpiar($_POST["emailUser"]);
 			$emailAcomp = limpiar($_POST["emailAcomp"]);
+
+			$datetime = formatoDatetime($turn, $date);
 			
-				//fecha formato datetime según la hora elegida
-				if ($turn == "m")
-					$datetime = $date . " 11:15:00";
-				else
-					$datetime = $date . " 17:45:00";
 		}
 
 		if ($correct) {

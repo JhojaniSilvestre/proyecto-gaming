@@ -27,11 +27,7 @@
                 $date = limpiar($_POST["fecha"]);
                 $shift = limpiar($_POST["turno"]);
 
-                //fecha formato datetime según la hora elegida
-                if ($shift == "m")
-                    $datetime = $date." 11:15:00";
-                else
-                    $datetime = $date." 17:45:00";
+				$datetime = formatoDatetime($shift, $date);
 				
 				
 				$id_participant = obtenerIdParticipante($conn,$user,$tournament,$datetime);
