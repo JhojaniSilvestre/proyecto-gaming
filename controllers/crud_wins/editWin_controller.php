@@ -50,11 +50,7 @@
                     $date = limpiar($_POST["date"]);
                     $shift = limpiar($_POST["shift"]);
     
-                    //fecha formato datetime según la hora elegida
-                    if ($shift == "m")
-                        $datetime = $date." 11:15:00";
-                    else
-                        $datetime = $date." 17:45:00";
+                    $datetime = formatoDatetime($shift, $date);
 
                     $id_participant = obtenerIdParticipante($conn,$username,$tourname,$datetime);
 

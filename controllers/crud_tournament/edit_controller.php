@@ -23,10 +23,10 @@
             //guardo la fecha
 			$date = $explode[0];
             //guardo el turno segun la hora
-            if ($explode[1] == "11:15:00")
-                $shift = "m";
-            else
-                $shift = "t";
+            $shift = formatoHora($explode[1]);
+            
+            
+            
         }
     }
     else{  
@@ -47,11 +47,7 @@
                     $idgame = limpiar($_POST["juego"]);
                     $shift = limpiar($_POST["turno"]);
 
-                    //fecha formato datetime según la hora elegida
-                    if ($shift == "m")
-                        $datetime = $date." 11:15:00";
-                    else
-                        $datetime = $date." 17:45:00";
+                    $datetime = formatoDatetime($shift, $date);
 
                     /* funcion para obtener la fecha actual */
                     date_default_timezone_set('Europe/Madrid');

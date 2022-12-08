@@ -75,9 +75,12 @@
                                                         <label class="mb-2">Fecha del incidente </label>
                                                         <input type="date" name="fecha" id="fecha">                               
                                                     </div>
+                                                    <div class="mt-3 box-cont">
+                                                        <label class="mb-2">Descripción </label>
+                                                        <textarea name="description" rows="4" cols="40"></textarea>
+                                                    </div>
                                                 </div>
-                                                <label class="mb-2">Descripción </label>
-                                                <textarea name="description" rows="4"></textarea>
+
                                                 <!-- fin  -->
                                                 <div class="form-button mt-3 d-flex justify-content-center">
                                                     <button name="submit" type="submit" class="btn-form">Registrar incidencia</button>

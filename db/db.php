@@ -34,4 +34,23 @@
 		$dato = htmlspecialchars($dato);
 		return $dato;
 	}
-?>
+
+	function formatoDatetime($shift, $date){
+		//fecha formato datetime según la hora elegida
+		if ($shift == "m")
+			$datetime = $date . " 11:15:00";
+		else
+			$datetime = $date . " 17:45:00";
+
+		return $datetime;
+	}
+
+	function formatoHora($hora){
+        //guardo el turno segun la hora
+        if ($hora== "11:15:00")
+            $shift = "m";
+        else
+            $shift = "t";
+
+		return $shift;
+	}
