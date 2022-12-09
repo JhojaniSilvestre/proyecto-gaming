@@ -23,10 +23,25 @@ function disponibilidadPuestos($conn, $datetime)
 }
 
 
-function comprobarEmail($conn, $emailUser)
+function comprobarEmail($conn,$emailUser,$id_user)
 {
     try {
-        $stmt = $conn->prepare("SELECT id_user FROM users where email = '$emailUser' AND active = 1 ");
+        $stmt = $conn->prepare("SELECT id_user FROM users where email = '$emailUser' AND id_user = $id_user AND active = 1 ");
+        $stmt->execute(); //ejecuta la select
+        $idUser="";
+        if ($stmt->rowCount() > 0) {
+            $idUser = $stmt->fetchColumn();
+        }
+        return $idUser;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function comprobarEmailAcomp($conn, $emailUser)
+{
+    try {
+        $stmt = $conn->prepare("SELECT id_user FROM users where email = '$emailUser', active = 1 ");
         $stmt->execute(); //ejecuta la select
         $idUser="";
         if ($stmt->rowCount() > 0) {

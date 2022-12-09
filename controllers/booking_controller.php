@@ -9,6 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 
 require_once '../db/db.php';
 $conn = generarConexion();
+$id_user = $_SESSION['id_user'];
 
 require_once '../models/booking_model.php';
 require_once '../models/crudTournament_model.php';
@@ -64,14 +65,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			else
 				$datetime = $date . " 17:45:00";
 
-			$idUsuario = comprobarEmail($conn, $emailUser);
+			$idUsuario = comprobarEmail($conn, $emailUser,$id_user);
 			if ($idUsuario == "") {
-				array_push($errors, "El email es incorrecto");
+				array_push($errors, "El email es incorrecto, debes introducir tu email de usuario");
 				$correct = false;
 			}
 
 			if ($emailAcomp != "") {
-				$idComp = comprobarEmail($conn, $emailAcomp);
+				$idComp = comprobarEmailAcomp($conn, $emailAcomp);
 				if ($idComp == "") {
 					array_push($errors, "El email del acompañante es incorrecto");
 					$correct = false;
