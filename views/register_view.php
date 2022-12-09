@@ -25,7 +25,6 @@
         <option value="m"> Mañana</option>
         <option value="t"> Tarde </option>
       </select>
-      <p>Estoy de acuerdo con <a href="https://www.script.legal/TerminosYCondiciones">Terminos y Condiciones</a></p>
       <input class="botons" type="submit" name="submit" value="Registrar" onclick="return registerOK()">
       <p><a href="../index.php">¿Ya tengo Cuenta?</a></p>
       <!-- Imprimo msj error-->
