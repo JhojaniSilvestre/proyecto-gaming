@@ -47,7 +47,7 @@
 
                 if($correct){
                     updateJuego($conn,$id,$name);
-                    header("location: ../games_controller.php");
+                    header("location: ../games_controller.php");    
                 }
             } //fin if isset
         } //fin if request post

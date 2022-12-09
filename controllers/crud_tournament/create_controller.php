@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($correct) {
             $idTournmt = generarIdTorneo($conn);
             crearTorneo($conn, $idTournmt, $name, $datetime, $idgame);
+            $mensajeOk="<h5 class='text-success text-center'>Torneo creado con exito!</h5>";
         }
     }
 }

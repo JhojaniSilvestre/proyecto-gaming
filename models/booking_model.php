@@ -59,7 +59,7 @@ function reservaNoRepetida($conn,$date,$idUser){
 
 function reservaPuesto($conn,$date,$idSeat,$idUser,$idComp){
     try {
-        $stmt = $conn->prepare("SELECT id_user FROM booking WHERE date = '$date'");
+        $stmt = $conn->prepare("SELECT id_user FROM booking WHERE date = '$date' AND active = 1");
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $insert = "INSERT INTO booking (date,id_seat,id_user,id_companion,responsible,active) 

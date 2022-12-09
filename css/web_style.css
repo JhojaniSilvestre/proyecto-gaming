@@ -1024,8 +1024,11 @@ body {
 
 /* estilo boton disponible */
 
-.div-btn > .btn-disponible{
-  background-color: #27292a;
+.div-btn > .btn-disponible {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #7a51f4;
+  color: white;
 }
 
 /* iconos welcome top jugadores */

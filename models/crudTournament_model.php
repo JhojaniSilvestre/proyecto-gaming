@@ -197,7 +197,8 @@ function disponibilidadPuestosTorneo($conn, $datetime)
 
 function inscribirseTorneo($conn,$id_tournament,$id_seat,$id_user,$date){
     try {
-        $stmt = $conn->prepare("SELECT id_user FROM participants,tournaments WHERE tournaments.id_tournament= participants.id_tournament AND date = '$date'");
+        $stmt = $conn->prepare("SELECT id_user FROM participants,tournaments WHERE tournaments.id_tournament= participants.id_tournament 
+        AND date = '$date' AND participants.active = 1");
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $insert = "INSERT INTO participants (id_tournament,id_seat,id_user,responsible,active) 
