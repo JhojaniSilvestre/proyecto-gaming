@@ -5,9 +5,12 @@
   }
   
   body {
-    background-image: url('../img/bckrgtr.jpg');
-    background-repeat: no-repeat;  
+    background-image: url("../img/img1.jpg"); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    height: 100vh;
 }
 
 .error{
