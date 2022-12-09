@@ -122,14 +122,14 @@
             <!----------------------------------------START MAIN SECTION ------------------------------------------>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="text-white fw-bold h3 me-4">Usuarios</h1>
+                    <h1 class="text-white fw-bold h3 me-4">Incidencias</h1>
                 </div>
 
                 <div class="row">
                     <div class="col-10 mx-auto">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Historial usuarios</h4>
+                                <h4 class="card-title">Historial incidencias</h4>
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table">
