@@ -89,6 +89,15 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="./adminBooking_controller.php">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-circle-exclamation fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminIncidents_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>

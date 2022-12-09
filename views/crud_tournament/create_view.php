@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../crud_games/games_controller.php">
+                            <a class="nav-link" aria-current="page" href="../games_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-gamepad fa-stack-1x fa-inverse"></i>
@@ -87,6 +87,15 @@
                                     <i class="fa-solid fa-trophy fa-stack-1x fa-inverse"></i>
                                 </span>
                                 Victorias
+                            </a>
+                        </li>
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" aria-current="page" href="../adminBooking_controller.php">
+                                <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-circle-exclamation fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Reservas
                             </a>
                         </li>
                         <li class="nav-item menu-items">
@@ -116,7 +125,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3">Crear Torneos</h1>
                 </div>
-
+                <?php if(isset($mensajeOk)){ echo $mensajeOk; } ?>
                 <div class="row">
                     <div class="card col-lg-5 col-10 mx-auto">
                         <div class="card-body px-2 py-3 px-md-3 py-md-5">

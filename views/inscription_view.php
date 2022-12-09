@@ -38,6 +38,7 @@
               <li><a href="welcome_controller.php">Home</a></li>
               <li><a href="../controllers/booking_controller.php">Reservas</a></li>
               <li><a href="../controllers/userTournament_controller.php">Torneos</a></li>
+              <li><a href="../controllers/incidents_controller.php">Incidencias</a></li>
               <li><a href="profile_controller.php" class="active">Mi cuenta</a></li>
               <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/profile-header.jpg" alt=""></a></li>
             </ul>

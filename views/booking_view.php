@@ -58,6 +58,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
+                <?php if(isset($mensajeOk)){ echo $mensajeOk; } ?>
                     <div class="booking-area">
                         <div class="heading-section text-center">
                             <h4><em>Reserva</em> Tu Puesto</h4>

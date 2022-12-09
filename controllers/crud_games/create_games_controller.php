@@ -21,7 +21,7 @@
 
 			if($correct){
 				añadirJuegos($conn,$name);
-                array_push($errors,"Se ha añadido correctamente");
+                $mensajeOk="<h5 class='text-success text-center'>Juego añadido con exito!</h5>";
 			}else{
                 array_push($errors,"No se ha podido añadir el juego");
 				$correct = false;

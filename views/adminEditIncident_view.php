@@ -134,7 +134,6 @@ if (!isset($_SESSION['id_admin'])) {
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3">Editar Incidencia</h1>
                 </div>
-
                 <div class="row">
                     <div class="card col-lg-5 col-10 mx-auto">
                         <div class="card-body px-2 py-3 px-md-3 py-md-5">
