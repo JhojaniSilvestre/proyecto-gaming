@@ -136,7 +136,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Id reserva</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
                                                 <th>Puesto</th>
                                                 <th>Usuario</th>
                                                 <th>Responsable</th>
@@ -189,7 +189,7 @@
                                                 <th>Id participante</th>
                                                 <th>Usuario</th>
                                                 <th>Puesto</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
                                                 <th>Nombre torneo</th>
                                                 <th>Nombre juego</th>
                                                 <th>Responsable</th>

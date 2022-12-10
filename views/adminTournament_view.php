@@ -140,7 +140,7 @@
                                                 <th>ID Torneo</th>
                                                 <th>Nombre</th>
                                                 <th>Juego</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>

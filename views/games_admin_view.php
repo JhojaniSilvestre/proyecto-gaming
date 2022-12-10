@@ -152,7 +152,7 @@
                                                             <!--imprimo los datos columna de la fila en la celda"-->
                                                             <?php echo "<td>".$celda."</td>"; ?>
                                                         <?php endforeach;?>
-                                                        <td><a class='btn btn-success text-decoration-none text-white' 
+                                                        <td><a class='btn btn-outline-success text-decoration-none' 
                                                         href="./crud_games/edit_games_controller.php?id=<?php echo $fila[0]; ?>">Editar</a></td>
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>

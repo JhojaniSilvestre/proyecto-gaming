@@ -125,7 +125,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3 me-4">Victorias</h1>
-                    <a href="./crud_wins/addWin_controller.php" class="btn btn-primary">Añadir Victoria</a>
+                    <a href="./crud_wins/addWin_controller.php" class="btn btn-outline-primary">Añadir Victoria</a>
                 </div>
                 <div class="row">
                 <div class="card col-10 mx-auto">

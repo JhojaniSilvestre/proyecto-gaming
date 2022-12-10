@@ -1,12 +1,3 @@
-<?php
-    session_start();
-    
-    if (!isset($_SESSION['id_admin'])) {
-		session_unset();
-		session_destroy();
-		header("location: ../../index.php");
-	}
-?>
 <!doctype html>
 <html lang="es">
 
