@@ -19,7 +19,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../admin_controller.php">
             <img src="../../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="../tournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -71,7 +71,7 @@
                                 Torneos
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="../games_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -135,7 +135,8 @@
                                     <input type="text" name="nombre" id="nombre" placeholder="Nombre del juego">
                                 </div>
                                 <div class="text-center mb-2">
-                                    <button type="submit" name="añadir" class="btn-form">Añadir</button>
+                                <a href="../games_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>
+                                    <button type="submit" name="añadir" class="ms-2 btn btn-success">Añadir</button>
                                 </div>
                                 <!-- Imprimo msj error-->
                                 <?php if(empty($errors) === false){ ?>

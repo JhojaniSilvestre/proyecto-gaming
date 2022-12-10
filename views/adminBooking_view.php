@@ -18,7 +18,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="./admin_controller.php">
             <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -88,7 +88,7 @@
                                 Victorias
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="./adminBooking_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
