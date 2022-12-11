@@ -150,18 +150,12 @@
                                                 <!-- recorro las filas del array-->
                                                 <?php foreach($users as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
-                                                        <!-- recorro los datos de cada fila-->
-                                                        <td><?php echo $fila[0]; ?></td>
-                                                        <td><?php echo $fila[1]; ?></td>
-                                                        <td><?php echo $fila[2]; ?></td>
-                                                        <td><?php echo $fila[3]; ?></td>
-                                                        <td><?php echo $fila[4]; ?></td>
-                                                        <?php if ($fila[5] == 0) { ?>
-                                                        <td>No</td>
-                                                        <?php  } else { ?>
-                                                        <td>Si</td>
-                                                        <?php  } ?>
-                                                        <!--paso id del torneo en el enlace-->
+                                                    <!-- recorro los datos de cada fila-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                        <!--paso id del usuario en el enlace-->
                                                         <td>
                                                             <a onclick="activarUserOK(<?php echo $fila[0]; ?>)" 
                                                             class="btn btn-outline-success me-3">Activar</a>

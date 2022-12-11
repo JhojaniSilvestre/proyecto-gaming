@@ -2,8 +2,8 @@
 
 function obtenerTorneos($conn){
     try {
-        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame, active
-                                FROM tournaments,games WHERE tournaments.id_game = games.id_game ");
+        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame, 
+        IF(active=1, 'SI', 'NO') AS active FROM tournaments,games WHERE tournaments.id_game = games.id_game ");
         $stmt->execute();
         $tournaments = array();
         

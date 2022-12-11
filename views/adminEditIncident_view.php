@@ -137,8 +137,9 @@
                                 <div>
                                     <input type="date" name="date" id="date" value="<?php echo $date; ?>">
                                 </div>
-                                <div>
-                                    <input type="text" name="description" id="description" value="<?php echo $description; ?>">
+                                <div class="mt-3 box-cont">
+                                    <label class="mb-2">Descripción </label>
+                                    <textarea name="description" rows="4" cols="40"><?php echo $description; ?></textarea>
                                 </div>
                                 <div class="text-center mb-2">
                                     <a href="adminIncidents_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>

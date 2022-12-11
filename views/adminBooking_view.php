@@ -144,27 +144,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Compruebo que existen torneos-->
+                                            <!-- Compruebo que existen reservas-->
                                             <?php if (empty($booking) === false) { ?>
                                                 <!-- recorro las filas del array-->
                                                 <?php foreach ($booking as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                     <!-- recorro los datos de cada fila-->
-                                                    <td><?php echo $fila[0]; ?></td>
-                                                    <td><?php echo $fila[1]; ?></td>
-                                                    <td><?php echo $fila[2]; ?></td>
-                                                    <td><?php echo $fila[3]; ?></td>
-                                                    <?php if ($fila[4] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <?php if ($fila[5] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <!--paso id del torneo en el enlace-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <!--paso id de la reserva en el enlace-->
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>
@@ -197,29 +187,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Compruebo que existen torneos-->
+                                            <!-- Compruebo que existen participantes-->
                                             <?php if (empty($participants) === false) { ?>
                                                 <!-- recorro las filas del array-->
                                                 <?php foreach ($participants as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                     <!-- recorro los datos de cada fila-->
-                                                    <td><?php echo $fila[0]; ?></td>
-                                                    <td><?php echo $fila[1]; ?></td>
-                                                    <td><?php echo $fila[2]; ?></td>
-                                                    <td><?php echo $fila[3]; ?></td>
-                                                    <td><?php echo $fila[4]; ?></td>
-                                                    <td><?php echo $fila[5]; ?></td>
-                                                    <?php if ($fila[6] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <?php if ($fila[7] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <!--paso id del torneo en el enlace-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <!--paso id del participante en el enlace-->
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>

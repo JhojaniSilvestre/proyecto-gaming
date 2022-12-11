@@ -2,8 +2,9 @@
 
 function obtenerUsuarios($conn){
     try {
-        $stmt = $conn->prepare("SELECT id_user, username , email, password, shift, active FROM users
-            ORDER BY active DESC");
+        $stmt = $conn->prepare("SELECT id_user, username , email, password,
+        IF(shift='m', 'M', 'T') AS shift, IF(active=1, 'SI', 'NO') AS active 
+        FROM users ORDER BY active DESC");
         $stmt->execute();
         $users = array();
         
