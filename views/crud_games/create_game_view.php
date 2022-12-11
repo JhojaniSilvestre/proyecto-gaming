@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-items">
-                            <a class="nav-link" aria-current="page" href="../tournament_controller.php">
+                            <a class="nav-link" aria-current="page" href="../adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                                     <i class="fa-solid fa-laptop fa-stack-1x fa-inverse"></i>

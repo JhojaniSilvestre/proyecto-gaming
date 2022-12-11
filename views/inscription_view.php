@@ -86,7 +86,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center div-btn">
-                                                <button name="disponibilidad" type="submit" class="btn-disponible">Sitios disponibles para este torneo</button>
+                                                <button name="disponibilidad" type="submit" class="btn-disponible">Ver sitios disponibles</button>
                                             </div>
 
                                                 <!-- Imprimo puestos disponibles-->
@@ -101,7 +101,7 @@
                                                     </div>
                                                 <?php } ?>
                                                 <!-- fin  -->
-                                                <div class="form-button mt-3 d-flex justify-content-center">
+                                                <div class="form-button mt-5 d-flex justify-content-center">
                                                     <a class="btn btn-primary rounded-pill me-3 px-3 py-3" href="userTournament_controller.php">Volver</a>
                                                     <button name="submit" type="submit" class="btn-form">Reservar</button>
                                                 </div>
@@ -109,7 +109,7 @@
                                                 <?php if (empty($errors) === false) { ?>
                                                     <?php echo "<ul>"; ?>
                                                     <?php foreach ($errors as $error) : ?>
-                                                        <?php echo "<li class='text-danger'>" . $error . "</li>"; ?>
+                                                        <?php echo "<li class='text-danger mt-4'>" . $error . "</li>"; ?>
                                                     <?php endforeach; ?>
                                                     <?php echo "</ul>"; ?>
                                                 <?php } ?>
