@@ -24,3 +24,12 @@ function cancelarBookingOK(id_booking){
         return false;
     }
 }
+
+function desactivarTournOK(id_tournament){
+    var answer = confirm("Pulsa 'Aceptar' para confirmar la desactivación");
+    if (answer ==true){
+        return window.location.href = "../controllers/adminTournament_controller.php?id_tournament="+id_tournament;
+    }else{
+        return false;
+    }
+}

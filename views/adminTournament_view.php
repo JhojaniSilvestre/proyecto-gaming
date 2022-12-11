@@ -141,6 +141,7 @@
                                                 <th>Nombre</th>
                                                 <th>Juego</th>
                                                 <th>Fecha / Hora</th>
+                                                <th>Activo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -159,7 +160,7 @@
                                                         <td>
                                                             <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" 
                                                             class="btn btn-outline-success me-3">Editar</a>
-                                                            <a href="#" 
+                                                            <a onclick="desactivarTournOK(<?php echo $fila[0]; ?>)"
                                                             class="btn btn-outline-danger">Desactivar</a>
                                                         </td>
                                                     <?php echo "</tr>"; ?>
@@ -178,6 +179,7 @@
         </div>
     </div>
     <!---------------------------------- Scripts ---------------------------->
+    <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 
 </body>

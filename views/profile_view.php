@@ -13,12 +13,10 @@
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-
   <!-- Additional CSS Files -->
 
   <link rel="stylesheet" href="../css/web_style.css">
 
-  <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
 </head>
 
 <body>
@@ -223,6 +221,8 @@
   </footer>
 
     <!-- Scripts -->
+    <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
+    
     <!-- Bootstrap core JavaScript -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
