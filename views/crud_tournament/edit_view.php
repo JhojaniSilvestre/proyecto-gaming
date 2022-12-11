@@ -1,12 +1,3 @@
-<?php
-    session_start();
-    
-    if (!isset($_SESSION['id_admin'])) {
-		session_unset();
-		session_destroy();
-		header("location: ../../index.php");
-	}
-?>
 <!doctype html>
 <html lang="es">
 
@@ -28,7 +19,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../admin_controller.php">
             <img src="../../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">

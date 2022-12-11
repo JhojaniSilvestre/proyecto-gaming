@@ -169,5 +169,10 @@ main{
   border-color: #2c2e33;
 }
 
+.table td:hover{
+  background-color : #7a51f4;
+  color: white;
+}
+
 
 

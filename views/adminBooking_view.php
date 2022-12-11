@@ -18,7 +18,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="./admin_controller.php">
             <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                                 Usuarios
                             </a>
                         </li>
-                        <li class="nav-item menu-items active">
+                        <li class="nav-item menu-items">
                             <a class="nav-link" aria-current="page" href="./adminTournament_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -88,7 +88,7 @@
                                 Victorias
                             </a>
                         </li>
-                        <li class="nav-item menu-items">
+                        <li class="nav-item menu-items active">
                             <a class="nav-link" aria-current="page" href="./adminBooking_controller.php">
                                 <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
@@ -136,7 +136,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Id reserva</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
                                                 <th>Puesto</th>
                                                 <th>Usuario</th>
                                                 <th>Responsable</th>
@@ -144,27 +144,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Compruebo que existen torneos-->
+                                            <!-- Compruebo que existen reservas-->
                                             <?php if (empty($booking) === false) { ?>
                                                 <!-- recorro las filas del array-->
                                                 <?php foreach ($booking as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                     <!-- recorro los datos de cada fila-->
-                                                    <td><?php echo $fila[0]; ?></td>
-                                                    <td><?php echo $fila[1]; ?></td>
-                                                    <td><?php echo $fila[2]; ?></td>
-                                                    <td><?php echo $fila[3]; ?></td>
-                                                    <?php if ($fila[4] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <?php if ($fila[5] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <!--paso id del torneo en el enlace-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <!--paso id de la reserva en el enlace-->
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>
@@ -189,7 +179,7 @@
                                                 <th>Id participante</th>
                                                 <th>Usuario</th>
                                                 <th>Puesto</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
                                                 <th>Nombre torneo</th>
                                                 <th>Nombre juego</th>
                                                 <th>Responsable</th>
@@ -197,29 +187,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Compruebo que existen torneos-->
+                                            <!-- Compruebo que existen participantes-->
                                             <?php if (empty($participants) === false) { ?>
                                                 <!-- recorro las filas del array-->
                                                 <?php foreach ($participants as $fila) : ?>
                                                     <?php echo "<tr>"; ?>
                                                     <!-- recorro los datos de cada fila-->
-                                                    <td><?php echo $fila[0]; ?></td>
-                                                    <td><?php echo $fila[1]; ?></td>
-                                                    <td><?php echo $fila[2]; ?></td>
-                                                    <td><?php echo $fila[3]; ?></td>
-                                                    <td><?php echo $fila[4]; ?></td>
-                                                    <td><?php echo $fila[5]; ?></td>
-                                                    <?php if ($fila[6] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <?php if ($fila[7] == 0) { ?>
-                                                        <td>No</td>
-                                                    <?php  } else { ?>
-                                                        <td>Si</td>
-                                                    <?php  } ?>
-                                                    <!--paso id del torneo en el enlace-->
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo cada dato-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <!--paso id del participante en el enlace-->
                                                     <?php echo "</tr>"; ?>
                                                 <?php endforeach; ?>
                                             <?php } ?>

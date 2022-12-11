@@ -19,15 +19,18 @@
 			$errors = array();
 			$correct = true;
 
+			/* comprobar que el nombre este disponible */
+			$disponible = nombreJuegoDisponible($conn,$name);
+			if ($disponible === false) {
+				array_push($errors,"Ya existe un juego con el nombre introducido.");
+				$correct = false;
+			}
+
 			if($correct){
 				añadirJuegos($conn,$name);
                 $mensajeOk="<h5 class='text-success text-center'>Juego añadido con exito!</h5>";
-			}else{
-                array_push($errors,"No se ha podido añadir el juego");
-				$correct = false;
-            }
+			}
 		}
 	}
 	cerrarConexion($conn);
 	require_once("../../views/crud_games/create_game_view.php");
-?>

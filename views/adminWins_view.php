@@ -20,7 +20,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="./admin_controller.php">
             <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +125,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h1 class="text-white fw-bold h3 me-4">Victorias</h1>
-                    <a href="./crud_wins/addWin_controller.php" class="btn btn-primary">Añadir Victoria</a>
+                    <a href="./crud_wins/addWin_controller.php" class="btn btn-outline-primary">Añadir Victoria</a>
                 </div>
                 <div class="row">
                 <div class="card col-10 mx-auto">

@@ -118,7 +118,9 @@
 
                                         </div>
 
-                                        <button name="disponibilidad" type="submit" class="">Ver disponibilidad</button>
+                                        <div class="text-center div-btn mt-4">
+                                            <button name="disponibilidad" type="submit" class="btn-disponible">Ver sitios disponibles</button>
+                                        </div>
                                         <!-- Imprimo puestos disponibles-->
                                         <?php if (empty($seats) === false) { ?>
                                         <div class="col-md-12">
@@ -141,7 +143,7 @@
                                         <?php if (empty($errors) === false) { ?>
                                         <?php echo "<ul>"; ?>
                                         <?php foreach ($errors as $error) : ?>
-                                        <?php echo "<li class='text-danger'>" . $error . "</li>"; ?>
+                                        <?php echo "<li class='text-danger mt-4'>" . $error . "</li>"; ?>
                                         <?php endforeach; ?>
                                         <?php echo "</ul>"; ?>
                                         <?php } ?>

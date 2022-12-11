@@ -60,10 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			$idComp = 'NULL';
 
 			//fecha formato datetime según la hora elegida
-			if ($turn == "m")
-				$datetime = $date . " 11:15:00";
-			else
-				$datetime = $date . " 17:45:00";
+			$datetime = formatoDatetime($turn, $date);
 
 			$idUsuario = comprobarEmail($conn, $emailUser,$id_user);
 			if ($idUsuario == "") {

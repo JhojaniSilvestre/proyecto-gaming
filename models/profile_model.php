@@ -3,8 +3,8 @@
 function obtenerMisReservas($conn,$id_user)
 {
     try {
-        $stmt = $conn->prepare("SELECT id_booking,date,id_seat,responsible
-        FROM booking WHERE id_user=$id_user AND active=1 ORDER by date DESC; ");
+        $stmt = $conn->prepare("SELECT id_booking,date,id_seat,IF(responsible=1, 'SI', 'NO') AS responsible
+        FROM booking WHERE id_user=$id_user AND active=1 ORDER by date DESC");
         $stmt->execute();
         $tournaments = array();
 
@@ -24,9 +24,10 @@ function obtenerMisReservas($conn,$id_user)
 function obtenerMisTorneos($conn,$id_user)
 {
     try {
-        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username, participants.id_seat,responsible 
+        $stmt = $conn->prepare("SELECT tournaments.id_tournament,tournaments.name AS nametourn,date, games.name AS nomgame,username, participants.id_seat,
+        IF(responsible=1, 'SI', 'NO') AS responsible 
         FROM tournaments,games,users,participants WHERE tournaments.id_game = games.id_game AND tournaments.id_tournament = participants.id_tournament
-        AND participants.id_user = users.id_user AND participants.id_user=$id_user AND tournaments.active = 1 AND participants.active = 1; ");
+        AND participants.id_user = users.id_user AND participants.id_user=$id_user AND tournaments.active = 1 AND participants.active = 1");
         $stmt->execute();
         $tournaments = array();
 

@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['id_admin'])) {
-    session_unset();
-    session_destroy();
-    header("location: ../index.php");
-}
-?>
 <!doctype html>
 <html lang="es">
 
@@ -28,8 +19,8 @@ if (!isset($_SESSION['id_admin'])) {
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
-            <img src="../../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="./admin_controller.php">
+            <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -146,8 +137,9 @@ if (!isset($_SESSION['id_admin'])) {
                                 <div>
                                     <input type="date" name="date" id="date" value="<?php echo $date; ?>">
                                 </div>
-                                <div>
-                                    <input type="text" name="description" id="description" value="<?php echo $description; ?>">
+                                <div class="mt-3 box-cont">
+                                    <label class="mb-2">Descripción </label>
+                                    <textarea name="description" rows="4" cols="40"><?php echo $description; ?></textarea>
                                 </div>
                                 <div class="text-center mb-2">
                                     <a href="adminIncidents_controller.php" class="btn btn-secondary text-decoration-none text-white">Volver</a>

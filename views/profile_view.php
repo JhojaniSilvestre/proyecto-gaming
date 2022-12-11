@@ -13,12 +13,10 @@
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-
   <!-- Additional CSS Files -->
 
   <link rel="stylesheet" href="../css/web_style.css">
 
-  <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
 </head>
 
 <body>
@@ -120,14 +118,11 @@
                             <?php if (empty($misReservas) === false) { ?>
                               <?php foreach ($misReservas as $fila) : ?>
                                 <?php echo "<tr>"; ?>
-                                <td><?php echo $fila[0]; ?></td>
-                                <td><?php echo $fila[1]; ?></td>
-                                <td><?php echo $fila[2]; ?></td>
-                                <?php if ($fila[3] == 0) { ?>
-                                  <td>No</td>
-                                <?php  } else { ?>
-                                  <td>Si</td>
-                                <?php  } ?>
+                                <!-- recorro los datos de cada fila-->
+                                <?php foreach ($fila as $celda) : ?>
+                                  <!--imprimo cada dato-->
+                                  <?php echo "<td>" . $celda . "</td>"; ?>
+                                <?php endforeach; ?>
                                 <td>
                                   <a type="submit" class="btn btn-outline-success me-3" onclick="cancelarBookingOK(<?php echo $fila[0]; ?>)">Cancelar</a>
                                 </td>
@@ -162,8 +157,6 @@
                               <th>Sitio</th>
                               <th>Responsable</th>
                               <th>Acción</th>
-
-
                             </tr>
                           </thead>
                           <tbody>
@@ -171,17 +164,11 @@
                             <?php if (empty($misTorneos) === false) { ?>
                               <?php foreach ($misTorneos as $fila) : ?>
                                 <?php echo "<tr>"; ?>
-                                <td><?php echo $fila[0]; ?></td>
-                                <td><?php echo $fila[1]; ?></td>
-                                <td><?php echo $fila[2]; ?></td>
-                                <td><?php echo $fila[3]; ?></td>
-                                <td><?php echo $fila[4]; ?></td>
-                                <?php if ($fila[5] == 0) { ?>
-                                  <td>No</td>
-                                <?php  } else { ?>
-                                  <td>Si</td>
-                                <?php  } ?>
-
+                                <!-- recorro los datos de cada fila-->
+                                <?php foreach ($fila as $celda) : ?>
+                                  <!--imprimo cada dato-->
+                                  <?php echo "<td>" . $celda . "</td>"; ?>
+                                <?php endforeach; ?>
                                 <td>
                                   <a type="submit" class="btn btn-outline-success me-3" onclick="cancelarTournOK(<?php echo $fila[0]; ?>)">Cancelar</a>
                                 </td>
@@ -215,12 +202,24 @@
 
             <br>Design: Eduardo Zafra Martín & Jhojani
             Silvestre
-            Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
+            Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da
+              Vinci</a>
           </p>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <script src="../js/isotope.min.js"></script>
+  <script src="../js/owl-carousel.js"></script>
+  <script src="../js/custom.js"></script>
 </body>
 
 </html>

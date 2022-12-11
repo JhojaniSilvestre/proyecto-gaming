@@ -18,7 +18,7 @@
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="./admin_controller.php">
             <img src="../img/gamin-room-logo-purple.png" alt="gaming room logo" class="img-logo-admin">
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,7 +140,8 @@
                                                 <th>ID Torneo</th>
                                                 <th>Nombre</th>
                                                 <th>Juego</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha / Hora</th>
+                                                <th>Activo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -159,7 +160,7 @@
                                                         <td>
                                                             <a href="./crud_tournament/edit_controller.php?id=<?php echo $fila[0]; ?>" 
                                                             class="btn btn-outline-success me-3">Editar</a>
-                                                            <a href="#" 
+                                                            <a onclick="desactivarTournOK(<?php echo $fila[0]; ?>)"
                                                             class="btn btn-outline-danger">Desactivar</a>
                                                         </td>
                                                     <?php echo "</tr>"; ?>
@@ -178,6 +179,7 @@
         </div>
     </div>
     <!---------------------------------- Scripts ---------------------------->
+    <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 
 </body>
