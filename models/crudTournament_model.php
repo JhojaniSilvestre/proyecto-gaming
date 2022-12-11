@@ -235,7 +235,12 @@ function inscripcionNoRepetida($conn,$date,$idUser){
 
 function desactivarTorneo($conn,$id_tournament){
     try {
+        //se desactiva el torneo seleccionado
         $update = "UPDATE tournaments SET active = 0 WHERE id_tournament = $id_tournament";
+        $conn->exec($update);
+
+        //se desactivan todos los participantes inscritos en el torneo desactivado
+        $update = "UPDATE participants SET active = 0 WHERE id_tournament = $id_tournament";
         $conn->exec($update);
 
     }catch(PDOException $e){

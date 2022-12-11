@@ -43,7 +43,7 @@
                             <li><a href="../controllers/userTournament_controller.php" class="active">Torneos</a></li>
                             <li><a href="incidents_controller.php">Incidencias</a></li>
                             <li><a href="profile_controller.php">Mi cuenta</a></li>
-                            <li><a href="../views/logout_view.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
+                            <li><a href="../index.php">Cerrar sesion <img src="../img/apagado.png" alt=""></a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

@@ -163,9 +163,9 @@
                                                         <?php  } ?>
                                                         <!--paso id del torneo en el enlace-->
                                                         <td>
-                                                            <a href="adminUsers_controller.php?idAct=<?php echo $fila[0]; ?>" 
+                                                            <a onclick="activarUserOK(<?php echo $fila[0]; ?>)" 
                                                             class="btn btn-outline-success me-3">Activar</a>
-                                                            <a href="adminUsers_controller.php?idDesc=<?php echo $fila[0]; ?>"  
+                                                            <a onclick="desactivarUserOK(<?php echo $fila[0]; ?>)"  
                                                             class="btn btn-outline-danger">Desactivar</a>
                                                         </td>
                                                     <?php echo "</tr>"; ?>
@@ -184,6 +184,7 @@
         </div>
     </div>
     <!---------------------------------- Scripts ---------------------------->
+    <script src="../js/confirmacionOK.js" type="text/javascript"> </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 
 </body>
