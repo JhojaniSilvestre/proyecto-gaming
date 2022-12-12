@@ -22,12 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $correct = false;
         }
 
-        if(obtenerEmails($conexion )){
+        if(obtenerEmails($conexion,$email)){
             array_push($error_clave, "Este email ya ha sido registrado");
             $correct = false;
         }
         
-        if(obtenerUsers($conexion)){
+        if(obtenerUsers($conexion,$name)){
             array_push($error_clave, "Ya existe ese nombre de usuario");
             $correct = false;
         }
