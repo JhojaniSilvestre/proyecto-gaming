@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Gaming Room</title>
 
@@ -17,9 +16,7 @@
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../css/web_style.css">
     <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
@@ -82,37 +79,39 @@
                     <div class="row mt-5">
                         <div class="col-lg-8">
                             <div class="featured-games header-text">
-                                <div class="heading-section text-center" >
+                                <div class="heading-section text-center">
                                     <h4><em>Torneos</em> Actuales</h4>
                                 </div>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Torneo</th>
-                                            <th>Nombre</th>
-                                            <th>Juego</th>
-                                            <th>Fecha/Hora</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Imprimo datos tabla-->
-                                        <?php if (empty($torneos) === false) { ?>
-                                        <?php foreach ($torneos as $fila) : ?>
-                                        <?php echo "<tr>"; ?>
-                                        <?php foreach ($fila as $celda) : ?>
-                                        <!--imprimo los datos columna de la fila en la celda"-->
-                                        <?php echo "<td>" . $celda . "</td>"; ?>
-                                        <?php endforeach; ?>
-                                        <?php echo "</tr>"; ?>
-                                        <?php endforeach; ?>
-                                        <?php } ?>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Torneo</th>
+                                                <th>Nombre</th>
+                                                <th>Juego</th>
+                                                <th>Fecha/Hora</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Imprimo datos tabla-->
+                                            <?php if (empty($torneos) === false) { ?>
+                                                <?php foreach ($torneos as $fila) : ?>
+                                                    <?php echo "<tr>"; ?>
+                                                    <?php foreach ($fila as $celda) : ?>
+                                                        <!--imprimo los datos columna de la fila en la celda"-->
+                                                        <?php echo "<td>" . $celda . "</td>"; ?>
+                                                    <?php endforeach; ?>
+                                                    <?php echo "</tr>"; ?>
+                                                <?php endforeach; ?>
+                                            <?php } ?>
 
-                                        <!-- fin datos -->
-                                    </tbody>
-                                </table>
+                                            <!-- fin datos -->
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <div class="main-button text-center mt-4">
-                                <a href="userTournament_controller.php">Inscríbete</a>
-                            </div>
+                                    <a href="userTournament_controller.php">Inscríbete</a>
+                                </div>
                             </div>
                         </div>
 
@@ -122,25 +121,25 @@
                                     <h4><em>Top</em> Jugadores</h4>
                                 </div>
                                 <?php if (empty($ranking) === false) { ?>
-                                <?php foreach ($ranking as  $clave => $fila) : ?>
-                                <?php echo "<ul>"; ?>
-                                <li>
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-6 d-flex align-items-center">
-                                            <span><?php echo $clave; ?></span>
-                                            <span class="fa-stack fa-1x">
-                                                <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                                <i class="fa-solid fa-chess-queen fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            <h6><i class="fa fa-check"></i><?php echo $fila[0]; ?></h6>
-                                        </div>
-                                        <div class="col-3">
-                                            <label class="wins"><?php echo $fila[1]; ?></label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <?php echo "</ul>"; ?>
-                                <?php endforeach; ?>
+                                    <?php foreach ($ranking as  $clave => $fila) : ?>
+                                        <?php echo "<ul>"; ?>
+                                        <li>
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-6 d-flex align-items-center">
+                                                    <span><?php echo $clave; ?></span>
+                                                    <span class="fa-stack fa-1x">
+                                                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                                        <i class="fa-solid fa-chess-queen fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                    <h6><i class="fa fa-check"></i><?php echo $fila[0]; ?></h6>
+                                                </div>
+                                                <div class="col-3">
+                                                    <label class="wins"><?php echo $fila[1]; ?></label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <?php echo "</ul>"; ?>
+                                    <?php endforeach; ?>
                                 <?php } ?>
                             </div>
                         </div>
@@ -157,8 +156,7 @@
                 <div class="col-lg-12">
                     <p>Copyright © 2022 Sala Gaming IES Leonardo Da Vinci.
 
-                        <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a
-                            href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
+                        <br>Design: Eduardo Zafra Martín & Jhojani Silvestre Beltrán Distributed By <a href="https://www.ifpleonardo.com" target="_blank">IES Leonardo Da Vinci</a>
                     </p>
                 </div>
             </div>
