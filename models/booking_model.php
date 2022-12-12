@@ -41,7 +41,7 @@ function comprobarEmail($conn,$emailUser,$id_user)
 function comprobarEmailAcomp($conn, $emailUser)
 {
     try {
-        $stmt = $conn->prepare("SELECT id_user FROM users where email = '$emailUser', active = 1 ");
+        $stmt = $conn->prepare("SELECT id_user FROM users where email = '$emailUser' AND active = 1 ");
         $stmt->execute(); //ejecuta la select
         $idUser="";
         if ($stmt->rowCount() > 0) {
@@ -55,8 +55,8 @@ function comprobarEmailAcomp($conn, $emailUser)
 
 function reservaNoRepetida($conn,$date,$idUser){
     try {
-        $stmt = $conn->prepare("SELECT booking.id_user FROM seats,booking where 
-        date = '$date' AND booking.id_user=$idUser AND active = 1");
+        $stmt = $conn->prepare("SELECT id_user FROM booking where 
+        date = '$date' AND id_user = $idUser AND active = 1");
         $stmt->execute(); //ejecuta la select
         $correcto=true;
         if ($stmt->rowCount() > 0) {

@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	}
 
 	if (isset($_POST['submit'])) {
+		
 		if (!isset($_POST["seat"])) {
 			array_push($errors, "Debe elegir un puesto disponible.");
 			$correct = false;
@@ -95,7 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			}
 
 			$resultado = reservaNoRepetida($conn,$datetime,$idUsuario);
-			if ($resultado == false) {
+			
+			if ($resultado == false && $idUsuario == $id_user ) {
 				array_push($errors, "Ya tiene un puesto reservado para la fecha seleccionada.");
 				$correct = false;
 			}
