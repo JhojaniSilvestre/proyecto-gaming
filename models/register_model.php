@@ -16,22 +16,30 @@
         }
     }
 
-    function obtenerEmails($conn){
+    function obtenerEmails($conn,$email){
         try {
-            $stmt = $conn->prepare("SELECT email FROM users");
+            $stmt = $conn->prepare("SELECT email FROM users where email = '$email'");
             $stmt->execute();
-            return $stmt;
+            $correct = false;
+            if ($stmt->rowCount() > 0) {
+                $correct = true;
+            }
+            return $correct;
         }
         catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
 
-    function obtenerUsers($conn){
+    function obtenerUsers($conn,$user){
         try {
-            $stmt = $conn->prepare("SELECT username from users");
+            $stmt = $conn->prepare("SELECT username from users where username = '$user'");
             $stmt->execute();
-            return $stmt;
+            $correct = false;
+            if ($stmt->rowCount() > 0) {
+                $correct = true;
+            }
+            return $correct;
         }
         catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
