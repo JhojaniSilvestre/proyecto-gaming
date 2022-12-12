@@ -106,7 +106,7 @@
 
                     <!-- ***** Tournament Evening table Start ***** -->
 
-                    <div class="tournament-area">
+                    <div class="tournament-area mt-5">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section text-center">
