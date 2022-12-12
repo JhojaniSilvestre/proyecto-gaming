@@ -79,7 +79,7 @@
                                                                                                                                             echo $emailAcomp;
                                                                                                                                         } ?>">
                                         </div>
-
+                                        
                                         <div class="col-md-12 mt-3">
                                             <input type="date" name="fecha" value="<?php if (isset($date)) {
                                                                                         echo $date;
@@ -133,7 +133,7 @@
 
                                         <?php if (isset($puestoVacio)) {
                                             echo $puestoVacio;
-                                        } ?>">
+                                        } ?>
 
                                         <!-- fin  -->
                                         <div class="form-button mt-3 mb-3 d-flex justify-content-center">
