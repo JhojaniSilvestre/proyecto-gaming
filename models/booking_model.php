@@ -66,7 +66,7 @@ function reservaNoRepetida($conn,$date,$idUser){
         
     }
     catch(PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        
     }
 } 
 
