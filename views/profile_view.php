@@ -67,10 +67,9 @@
                     <div class="main-info header-text">
                       <span>Online</span>
                       <h4><?php echo $_SESSION['username']; ?></h4>
-                      <p>Aún no has participado en níngun torneo. ¿A qué estas esperando?. Pulsa
-                        AQUÍ para ver cuando es el siguiente!!</p>
+                      <p>Para ver los torneos a los que estás inscrito/a pulsa aquí.</p>
                       <div class="main-border-button">
-                        <a href="../controllers/userTournament_controller.php">Torneos</a>
+                        <a href="#misTorneos">Torneos</a>
                       </div>
                     </div>
                   </div>
@@ -88,12 +87,9 @@
           </div>
           <!-- ** Perfil usuario end ** -->
 
-          <div class="row">
+          <div class="row mt-5">
             <div class="col-lg-12">
               <!-- ** Tournament form Start ** -->
-              <ul class="enlace mt-3">
-                <li><a href="#misTorneos">Mis Torneos</a></li>
-              </ul>
 
               <div class="tournament-area" id="misReservas">
                 <div class="row">
@@ -101,7 +97,7 @@
                     <div class="heading-section text-center text">
                       <h4><em>Mis</em> Reservas</h4>
                     </div>
-                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <main class="col-12 col-lg-10 mx-auto">
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
@@ -145,7 +141,7 @@
                     <div class="heading-section text-center">
                       <h4><em>Mis</em> Torneos</h4>
                     </div>
-                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <main class="col-12 col-lg-10 mx-auto">
                       <div class="table-responsive">
                         <table class="table">
                           <thead>

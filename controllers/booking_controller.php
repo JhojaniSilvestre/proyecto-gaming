@@ -19,10 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$correct = true;
 
 	if (isset($_POST['disponibilidad'])) {
-		if ($_POST["fecha"] == "" ||  $_POST["shift"] == "") {
-			array_push($errors, "Tiene que seleccionar una fecha y hora para ver la disponibilidad.");
+		if ($_POST["fecha"] == "") {
+			array_push($errors, "Tiene que seleccionar una fecha.");
 			$correct = false;
-		}else{
+		}
+		if (!isset($_POST["shift"])) {
+			array_push($errors, "Tiene que seleccionar una hora.");
+			$correct = false;
+		}
+		else{
 			
 			$date = limpiar($_POST["fecha"]);
 			$turn = limpiar($_POST["shift"]);
