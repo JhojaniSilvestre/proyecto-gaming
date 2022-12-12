@@ -8,10 +8,6 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     background-image: url("../img/img1.jpg"); 
     background-position: center center;
     background-repeat: no-repeat;
@@ -25,7 +21,8 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 100%;
+    min-height: 100%;
     flex-wrap: wrap;
     padding: 40px 0;
 }
