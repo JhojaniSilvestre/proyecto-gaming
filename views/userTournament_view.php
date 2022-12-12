@@ -133,6 +133,9 @@
                                                             <!--imprimo los datos columna de la fila en la celda"-->
                                                             <?php echo "<td>" . $celda . "</td>"; ?>
                                                         <?php endforeach; ?>
+                                                        <td>
+                                                            <a href="inscription_controller.php?id=<?php echo $fila[0]; ?>" class="btn btn-outline-success me-3">Inscribirse</a>
+                                                        </td>
                                                         <?php echo "</tr>"; ?>
                                                     <?php endforeach; ?>
                                                 <?php } ?>

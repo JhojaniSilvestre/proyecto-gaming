@@ -2,8 +2,11 @@
 
 session_start(); //se inicia la sesión
 
-//cerrar sesión si actualmente hay una activa
-
+if (!isset($_SESSION['id_user'])) {
+	session_unset();
+	session_destroy();
+	header("location: ../index.php");
+}
 
 require_once '../db/db.php';
 $conn = generarConexion();
@@ -45,10 +48,18 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
             $id = $_POST["id"];
             $id_user = $_POST['id_user'];
             
+            /*obtener el turno (m,t) segun la hora */
+            $hora = explode(" ", $date);
+            $shift = formatoHora($hora[1]);
+            
             if (!isset($_POST["seat"])) {
                 array_push($errors, "Debe elegir un puesto disponible.");
                 $correct = false;
             }
+            if ($_SESSION['shift'] != $shift) {
+				array_push($errors, "No puede reservar un turno al que no pertenezca");
+				$correct = false;
+			}
 
             $resultado = inscripcionNoRepetida($conn,$date,$id_user);
 			if ($resultado == false) {
